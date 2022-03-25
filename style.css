@@ -296,6 +296,25 @@ body {
 .avatar-button:hover {
   opacity: 0.5;
 }
+.kus-video-bg {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transition: 0.5s all;
+}
+.kus-video-bg.activ {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.5s all;
+}
+.kus-videodiv {
+  margin-top: 40px;
+}
 .info-card {
   background-color: white;
   width: 631px;

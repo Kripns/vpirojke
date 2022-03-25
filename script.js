@@ -6,6 +6,11 @@ let loginQuestPopupBg = document.querySelector('.login-quest-popup-bg');
 let loginQuest = document.querySelector('.login-quest');
 let loginQuestPopup = document.querySelector('.login-quest-popup');
 let loginQuestPopupButton = document.querySelector('.login-quest-popup-button');
+let avatarButtonKus = document.querySelector('.kus');
+let kusNumbers = document.querySelector('.kus-numbers');
+let kusVideoBg = document.querySelector('.kus-video-bg');
+let kusVideo = document.querySelector('.kus-video');
+
 
 openPopupButton.addEventListener('click',()=>{
     loginPopupBg.classList.add('activ');
@@ -25,4 +30,12 @@ loginQuest.addEventListener('click', ()=>{
 loginQuestPopupButton.addEventListener('click', ()=>{
   loginQuestPopupBg.classList.remove('activ');
   loginQuestPopup.classList.remove('activ');
+})
+
+avatarButtonKus.addEventListener('click', ()=>{
+  kusVideoBg.hidden=false;
+  kusNumbers.textContent=Number(kusNumbers.textContent)+1;
+  kusVideoBg.classList.add('activ');
+  kusVideo.play();
+  setTimeout(()=>kusVideoBg.hidden=true, 19000);
 })
