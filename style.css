@@ -341,8 +341,16 @@ body {
   pointer-events: all;
   transition: 0.5s all;
 }
+.bg-close-img {
+  width: 32px;
+  position: relative;
+  left: 45%;
+  top: 8px;
+  border-radius: 100%;
+  cursor: pointer;
+}
 .kus-videodiv {
-  margin-top: 40px;
+  margin-top: 13px;
 }
 .info-card {
   background-color: white;
@@ -395,6 +403,8 @@ body {
 }
 .statistic-card {
   text-align: center;
+  border: none;
+  border-radius: 7px;
 }
 .stat {
   width: 90px;
@@ -407,4 +417,23 @@ body {
   line-height: 25px;
   font-weight: 400;
   color: rgb(42, 88, 133);
+}
+.border-div{
+  background-color: rgb(237, 238, 240);
+  height: 13px;
+}
+.pics-card {
+  border: none;
+  border-radius: 7px;
+  padding: 15px;
+  text-align: left;
+}
+.text-in-cards-bottom-marg {
+  margin-top: 0;
+}
+.thumbs-img {
+  width: 130px;
+  height: 130px;
+  padding-right: 5px;
+  cursor: pointer;
 }
