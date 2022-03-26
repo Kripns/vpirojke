@@ -10,6 +10,11 @@ let avatarButtonKus = document.querySelector('.kus');
 let kusNumbers = document.querySelector('.kus-numbers');
 let kusVideoBg = document.querySelector('.kus-video-bg');
 let kusVideo = document.querySelector('.kus-video');
+let gavPopupBg = document.querySelector('.gav-popup-bg');
+let gavPopup = document.querySelector('.gav-popup');
+let gavPopupButton = document.querySelector('.gav-popup-button');
+let avatarButtonGav = document.querySelector('.gav');
+let gavNumbers = document.querySelector('.gav-numbers');
 
 
 openPopupButton.addEventListener('click',()=>{
@@ -38,4 +43,15 @@ avatarButtonKus.addEventListener('click', ()=>{
   kusVideoBg.classList.add('activ');
   kusVideo.play();
   setTimeout(()=>kusVideoBg.hidden=true, 19000);
+})
+
+avatarButtonGav.addEventListener('click', ()=>{
+  gavNumbers.textContent=Number(gavNumbers.textContent)+1;
+  gavPopupBg.classList.add('activ');
+  gavPopup.classList.add('activ');
+})
+
+gavPopupButton.addEventListener('click', ()=>{
+  gavPopupBg.classList.remove('activ');
+  gavPopup.classList.remove('activ');
 })
