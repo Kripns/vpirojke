@@ -65,20 +65,12 @@ gavPopupButton.addEventListener('click', ()=>{
   gavPopup.classList.remove('activ');
 })
 
-/*if (radioGirl.hasAttribute('checked')){
-  radioBoy.removeAttribute('checked');
-  loginPopupFormText.textContent='Кто хорошая девочка?';
-}/* else if (radioBoy.hasAttribute('checked')){
-  radioGirl.removeAttribute('checked');
-  loginPopupFormText.textContent='Кто хороший мальчик?';
-}*/
+
 radioGirl.addEventListener('click', ()=>{
-  radioBoy.removeAttribute('checked');
   loginPopupFormText.textContent='Кто хорошая девочка?';
 })
+
 
 radioBoy.addEventListener('click', ()=>{
-  radioGirl.removeAttribute('checked');
   loginPopupFormText.textContent='Кто хороший мальчик?';
 })
-

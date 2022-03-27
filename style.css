@@ -450,10 +450,12 @@ body {
   border: none;
   border-radius: 7px;
   padding: 15px;
-  text-align: left;
+  text-align: center;
 }
 .text-in-cards-bottom-marg {
   margin-top: 0;
+  text-align: left;
+  margin-left: 22px;
 }
 .thumbs-img {
   width: 130px;
