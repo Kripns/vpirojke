@@ -16,6 +16,9 @@ let gavPopup = document.querySelector('.gav-popup');
 let gavPopupButton = document.querySelector('.gav-popup-button');
 let avatarButtonGav = document.querySelector('.gav');
 let gavNumbers = document.querySelector('.gav-numbers');
+let loginPopupFormText = document.querySelector('.login-popup-form-text');
+let radioBoy = document.querySelector('.radio-boy');
+let radioGirl = document.querySelector('.radio-girl');
 
 
 openPopupButton.addEventListener('click',()=>{
@@ -61,3 +64,21 @@ gavPopupButton.addEventListener('click', ()=>{
   gavPopupBg.classList.remove('activ');
   gavPopup.classList.remove('activ');
 })
+
+/*if (radioGirl.hasAttribute('checked')){
+  radioBoy.removeAttribute('checked');
+  loginPopupFormText.textContent='Кто хорошая девочка?';
+}/* else if (radioBoy.hasAttribute('checked')){
+  radioGirl.removeAttribute('checked');
+  loginPopupFormText.textContent='Кто хороший мальчик?';
+}*/
+radioGirl.addEventListener('click', ()=>{
+  radioBoy.removeAttribute('checked');
+  loginPopupFormText.textContent='Кто хорошая девочка?';
+})
+
+radioBoy.addEventListener('click', ()=>{
+  radioGirl.removeAttribute('checked');
+  loginPopupFormText.textContent='Кто хороший мальчик?';
+})
+

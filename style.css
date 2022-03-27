@@ -195,7 +195,7 @@ body {
 }
 .login-popup label {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column-reverse;
 }
@@ -227,9 +227,10 @@ body {
   margin: 0;
 }
 .checkbox {
+  cursor: pointer;
   position: absolute;
   right: 130px;
-  bottom: 100px;
+  bottom: 90px;
 }
 .popup-button {
   height: 40px;
@@ -253,6 +254,29 @@ body {
   background-color: white;
   color: #5181b8;
 }
+.radio-buttons-div {
+  margin-bottom: 15px;
+}
+.radio-buttons {
+  margin: 0;
+}
+.radio-buttons-boy {
+  display: inline-block;
+  position: relative;
+  right: 50px;
+}
+.radio-buttons-girl {
+  display: inline-block;
+  position: relative;
+  left: 50px;
+}
+.radio {
+  cursor: pointer;
+  position: relative;
+  top: 10px;
+  margin-bottom: 15px;
+}
+
 .avatar-card {
   display: inline-block;
   width: 230px;
