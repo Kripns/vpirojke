@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>впирожкe</title>
+    <link rel="icon" type="image/png" href="./media/pics/logo.png">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/style1.css">
+  </head>
+  <body>
+    <div class="page">
+      <header class="header"></header>
+      <main class="content">
+        <section class="left-column">
+          <div class="logo logo_place_left-column">
+            <a class="link logo__link" href="./index1.html">
+              <img class="logo-pic link__logo-pic" src="./media/pics/minilogo.jpg" alt="логотип">
+              <p class="link__text">впирожке</p>
+            </a>
+          </div>
+          <div class="login-card">
+            <h3 class="login-card__text login-card__text_padding-top">Телефон или емаил</h3>
+            <form>
+              <!--<label class="login-card__text login-card__text_padding-top" for="email">Телефон или емаил</label>-->
+              <input class="input login-card__input" type="email" name="email" id="email">
+            </form>
+            <h3 class="login-card__text">Пароль</h3>
+            <form>
+              <input class="input login-card__input" type="password" name="password">
+            </form>
+            <button class="button login-card__button login-card__button_type_enter">Войти</button>
+            <button class="button login-card__button login-card__button_type_login">Регистрация</button>
+            <a class="login-card__link link text-in-cards">Забыли куда нажимать?</a>
+          </div>
+        </section>
+        <section class="center-column">
+          <div class="search-form">
+            <form>
+              <input class="search-form__input search-form__input_place_center-column" type="search" name="search" value="Поиск">
+            </form>
+          </div>
+          <div class="avatar-card avatar-card_margin">
+            <img class="avatar-card__pic" src="./media/pics/200171700992_342955.jpg" alt="чето не робит:(">
+            <button class="button avatar-card__button avatar-card__button_type_gav">Написать гав гав</button>
+            <button class="button avatar-card__button avatar-card__button_type_kus">Сделать кусь</button>
+          </div>
+        </section>
+        <section class="right-column right-column_margin">
+          <div class="user-name-card">
+            <h1 class="user-name-card__text">Jeki Jeremi Jones Junior The Third</h1>
+          </div>
+          <div class="info-card">
+            <div class="questions-side">
+              <h3 class="text-in-cards questions-side__text-in-cards">День рождения пирожка</h3>
+              <h3 class="text-in-cards questions-side__text-in-cards">Какие ушки</h3>
+              <h3 class="text-in-cards questions-side__text-in-cards">Какой хвостик</h3>
+              <h3 class="text-in-cards questions-side__text-in-cards">Красивое</h3>
+            </div>
+            <div class="answers-side">
+              <h3 class="text-in-cards answers-side__text-in-cards">1 Мая 2020 года</h3>
+              <h3 class="text-in-cards answers-side__text-in-cards">Висюльки</h3>
+              <h3 class="text-in-cards answers-side__text-in-cards">Крендель</h3>
+              <h3 class="text-in-cards answers-side__text-in-cards">Да</h3>
+            </div>
+          </div>
+          <div class="statistic-bar">
+            <div class="quant-card">
+              <h2 class="quant-card__numbers quant-card__numbers_type_followers">0</h2>
+              <h3 class="text-in-cards quant-card__text-in-cards quant-card__text-in-cards_place_followers">пирожков понюхал</h3>
+            </div>
+            <div class="quant-card">
+              <h2 class="quant-card__numbers quant-card__numbers_type_kus">0</h2>
+              <h3 class="text-in-cards quant-card__text-in-cards quant-card__text-in-cards_place_kus">раз сделал кусь</h3>
+            </div>
+            <div class="quant-card">
+              <h2 class="quant-card__numbers quant-card__numbers_type_gavgav">0</h2>
+              <h3 class="text-in-cards quant-card__text-in-cards quant-card__text-in-cards_place_gavgav">раз написал гав-гав</h3>
+            </div>
+          </div>
+          <div class="pics-card pics-card_margin">
+            <h3 class="text-in-cards pics-card__text-in-cards">Фотографии</h3>
+            <div class="pics-card__thumb-bar">
+              <img class="pics-card__thumbs" src="./media/pics/lilpie.jpg" alt="фото1">
+              <img class="pics-card__thumbs" src="./media/pics/jopastic.jpg" alt="фото2">
+              <img class="pics-card__thumbs" src="./media/pics/pupsic.jpg" alt="фото3">
+              <img class="pics-card__thumbs" src="./media/pics/200171700992_342955.jpg" alt="фото4">
+            </div>
+          </div>
+        </section>
+      </main> 
+      <div class="popup-bg">
+        <img 
+          class="popup-bg__close-butt close-butt" 
+          src="./media/pics/close2.jpg" alt="закрыть">
+      </div>
+      <div class="login-popup popup">
+        <img class="login-popup__close-butt close-butt" src="./media/pics/close1.jpg" alt="закрыть">
+        <h2 class="login-popup__heading">Кто хороший мальчик?</h2>
+        <form class="login-popup__form">
+          <fieldset class="login-popup__radio-container">
+            <label class="login-popup__radio-label" for="boy">Пацанчек</label>
+            <input class="login-popup__radio-button" name="gender" type="radio" id="boy" value="boy" checked>
+            <label class="login-popup__radio-label" for="girl">Девочка</label>
+            <input class="login-popup__radio-button" name="gender" type="radio" id="girl" value="girl">
+          </fieldset>
+          <fieldset class="login-popup__input-containers">
+            <div class="login-popup__input-container">
+              <input class="login-popup__input" type="text" id="name">
+              <label class="login-popup__label" for="name">Пирожковое имя</label>
+            </div>
+            <div class="login-popup__input-container">
+              <input class="login-popup__input" type="date" id="birthday">
+              <label class="login-popup__label" for="birthday">День рождения пирожка</label>
+            </div>
+            <div class="login-popup__input-container">
+              <input class="login-popup__input" type="text" id="ears">
+              <label class="login-popup__label" for="ears">Какие ушки</label>
+            </div>
+            <div class="login-popup__input-container">
+              <input class="login-popup__input" type="text" id="tail">
+              <label class="login-popup__label" for="tail">Какой хвостик</label>
+            </div>
+            <div class="login-popup__checkbox-container">
+              <label class="login-popup__checkbox-label" for="beauty">Красивое</label>
+              <input class="login-popup__checkbox-input" type="checkbox" id="beauty" checked>
+            </div>
+              <button class="login-popup__button button" type="button">Я</button>
+          </fieldset>
+        </form>
+      </div> 
+      <div class="link-popup link-popup_place_login-card popup">
+        <h3 class="popup__heading popup__heading_place_link">А какой был вопрос?</h3>
+        <img class="popup__pic popup__pic_place_link" src="./media/pics/dog8.jpg" alt="сонная чихуашкка">
+        <button class="button popup__button popup__button_place_link">ниняю</button>
+      </div>
+      <div class="avatar-card-popup avatar-card-popup_gavgav popup">
+        <h3 class="popup__heading popup__heading_place_avatar-card">Написать гав гав за вас?</h3>
+        <img class="popup__pic popup__pic_place-avatar-card" src="./media/pics/puppykeyword.jpg" alt="пёсик на ноутбуке">
+        <button class="button popup__button popup__button_place_avatar-card">давайти</button>
+      </div>
+      <div class="avatar-card-video">
+        <video class="avatar-card-video__content" controls>
+          <source src="./media/video/2_5382322723219311633.mp4" type="video/mp4">
+          <source src="./media/video/2_5382322723219311633.webm" type="video/webm">
+          Почемуто не работает. Наверное плохой комплюхтер.
+        </video>
+      </div>
+      <!--<footer class="footer"></footer>-->
+    </div>
+    <script src="./scripts/script1.js"></script>
+  </body>
+</html>
