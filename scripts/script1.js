@@ -28,6 +28,7 @@ let quantCardNumbersTypeGavgav = document.querySelector('.quant-card__numbers_ty
 
 
 
+
 loginCardButtonTypeLogin.addEventListener('click',()=>{
   popupBg.classList.add('active');
   loginPopup.classList.add('active');
