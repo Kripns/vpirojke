@@ -1,0 +1,27 @@
+.ads-card {
+  padding: 20% 15px;
+  box-sizing: border-box;
+  background: red;
+  animation: ads-hipnotyze .2s infinite;
+  cursor: pointer;
+}
+
+@keyframes ads-hipnotyze {
+  from {
+    background: greenyellow;
+  }
+
+  to {
+    background: red;
+  }
+}
+
+.ads-card.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 605px) {
+  .ads-card {
+    display: none;
+  }
+}

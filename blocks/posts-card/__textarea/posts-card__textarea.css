@@ -1,0 +1,5 @@
+.posts-card__textarea {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 5px;
+}

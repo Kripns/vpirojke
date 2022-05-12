@@ -1,0 +1,14 @@
+.footer__heading {
+  max-width: 255px;
+  margin: 0;
+  color: rgb(168, 168, 168);
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 805px) {
+  .footer__heading {
+    font-size: 15px;
+    max-width: 245px;
+  }
+}

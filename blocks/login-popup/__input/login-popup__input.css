@@ -1,0 +1,15 @@
+.login-popup__input {
+  line-height: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(132, 132, 133);
+}
+
+.login-popup__input:focus+.login-popup__label {
+  color: #5181b8;
+}
+
+.login-popup__input:focus {
+  border: none;
+  border-bottom: 3px solid #5181b8;
+}

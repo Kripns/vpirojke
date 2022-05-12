@@ -1,0 +1,17 @@
+.counter__numbers {
+  margin: 0;
+  font-size: 19px;
+  line-height: 25px;
+  font-weight: 400;
+  color: rgb(42, 88, 133);
+}
+
+.counter__numbers.girl {
+  filter: hue-rotate(115deg);
+}
+
+@media screen and (max-width: 605px) {
+  .counter__numbers {
+    font-size: 16px;
+  }
+}

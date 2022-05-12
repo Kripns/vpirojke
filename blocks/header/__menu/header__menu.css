@@ -1,0 +1,18 @@
+.header__menu {
+  display: flex;
+  gap: 34px;
+}
+
+@media screen and (max-width: 805px) {
+  .header__menu {
+    gap: 114px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header__menu {
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+  }
+}

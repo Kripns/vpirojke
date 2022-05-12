@@ -1,0 +1,16 @@
+.counter {
+  max-width: 90px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  gap: 15px;
+  text-align: center;
+}
+
+@media screen and (max-width: 605px) {
+  .counter {
+    gap: 10px;
+    padding-top: 10px;
+  }
+}

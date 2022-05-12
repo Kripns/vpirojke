@@ -1,0 +1,29 @@
+.header {
+  min-width: 320px;
+  max-width: 1040px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  margin: 0 auto;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.header.girl {
+  filter: hue-rotate(115deg);
+}
+
+@media screen and (max-width: 805px) {
+  .header {
+    padding: 10px 15px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .header {
+    padding: 10px;
+    justify-content: center;
+  }
+}

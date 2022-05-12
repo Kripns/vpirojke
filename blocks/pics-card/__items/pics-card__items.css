@@ -1,0 +1,7 @@
+.pics-card__items {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 3%;
+  grid-template-rows: 75%;
+  box-sizing: border-box;
+}

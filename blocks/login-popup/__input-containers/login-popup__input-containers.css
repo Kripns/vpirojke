@@ -1,0 +1,8 @@
+.login-popup__input-containers {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+}

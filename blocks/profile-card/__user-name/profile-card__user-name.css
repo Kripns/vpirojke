@@ -1,0 +1,18 @@
+.profile-card__user-name {
+  min-width: 320px;
+  width: 100%;
+  font-size: 19px;
+  line-height: 25px;
+  font-weight: 400;
+  margin: 0;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgb(220, 225, 230);
+}
+
+@media screen and (max-width: 605px) {
+  .profile-card__user-name {
+    display: none;
+  }
+}

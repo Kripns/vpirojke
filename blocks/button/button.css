@@ -1,0 +1,25 @@
+.button {
+  border-radius: 5px;
+  border: 2px solid #5181b8;
+  background: #5181b8;
+  color: white;
+  transition: opacity .2s;
+  cursor: pointer;
+  padding: 7.5px 3px;
+  box-sizing: border-box;
+  font-size: 13.5px;
+  text-align: center;
+}
+
+.button:hover {
+  opacity: .5;
+}
+
+.button:active {
+  background: white;
+  color: #5181b8;;
+}
+
+.button.girl {
+  filter: hue-rotate(115deg);
+}

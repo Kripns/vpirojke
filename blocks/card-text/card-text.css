@@ -1,0 +1,17 @@
+.card-text {
+  color: rgb(42, 88, 133);
+  font-size: 12.4px;
+  line-height: 1.154;
+  font-weight: normal;
+  margin: 0;
+  }
+
+.card-text.girl {
+  filter: hue-rotate(115deg);
+}
+
+@media screen and (max-width: 605px) {
+  .card-text {
+    font-size: 11.5px;
+  }
+}

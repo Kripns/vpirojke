@@ -1,0 +1,11 @@
+.posts-card__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgb(220, 225, 230);
+}
+

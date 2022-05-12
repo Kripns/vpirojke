@@ -1,0 +1,25 @@
+.login-card  {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+@media screen and (max-width: 805px) {
+  .login-card {
+    position: fixed;
+    top: 30%;
+    left: 2%;
+    background: rgb(237, 238, 240);
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transform: translate(-110%);
+    transition: transform 1s;
+  }
+}
+
+.login-card.active {
+  transform: translate(1px);
+  z-index: 2;
+}

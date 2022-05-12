@@ -1,0 +1,29 @@
+.sidebar {
+  display: none;
+  border-radius: 50%;
+  opacity: .5;
+  cursor: pointer;
+  transition: transform 1s;
+  z-index: 2;
+}
+
+.sidebar:hover {
+  opacity: .7;
+}
+
+.sidebar:active {
+  opacity: .1;
+}
+
+.sidebar.active {
+  transform: translate(195px);
+}
+
+@media screen and (max-width: 805px) {
+  .sidebar {
+    display: unset;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    }
+  }

@@ -1,0 +1,25 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: all .5s;
+  background-color: white;
+  padding: 25px 25px 25px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  max-width: 400px;
+  z-index: 3;
+}
+
+@media screen and (max-width: 805px) {
+  .popup {
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .popup {
+    padding: 10px;
+  }
+}
