@@ -1,12 +1,12 @@
-.ads-card {
+.animation-card {
   padding: 20% 15px;
   box-sizing: border-box;
   background: red;
-  animation: ads-hipnotyze .2s infinite;
+  animation: animation-hipnotyze .2s infinite;
   cursor: pointer;
 }
 
-@keyframes ads-hipnotyze {
+@keyframes animation-hipnotyze {
   from {
     background: greenyellow;
   }
@@ -16,12 +16,12 @@
   }
 }
 
-.ads-card.hidden {
+.animation-card.hidden {
   display: none;
 }
 
 @media screen and (max-width: 605px) {
-  .ads-card {
+  .animation-card {
     display: none;
   }
 }

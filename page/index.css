@@ -34,8 +34,8 @@
 @import url(../blocks/avatar-card/__pic/avatar-card__pic.css);
 @import url(../blocks/avatar-card/__button/avatar-card__button.css);
 
-@import url(../blocks/ads-card/ads-card.css);
-@import url(../blocks/ads-card/__text/ads-card__text.css);
+@import url(../blocks/animation-card/animation-card.css);
+@import url(../blocks/animation-card/__text/animation-card__text.css);
 
 @import url(../blocks/sidebar/sidebar.css);
 @import url(../blocks/sidebar/__button/sidebar__button.css);

@@ -23,7 +23,7 @@ let kusVideo = document.querySelector('.kus-video');
 let kusVideoContent = document.querySelector('.kus-video__content');
 let counterNumbersTypeKus = document.querySelector('.counter__numbers_type_kus');
 let counterNumbersTypeGavgav = document.querySelector('.counter__numbers_type_gavgav');
-let adsCard = document.querySelectorAll('.ads-card');
+let animationCard = document.querySelectorAll('.animation-card');
 let postsCardButton = document.querySelector('.posts-card__button');
 let userPost = document.querySelector('.user-post');
 let userPostUsername = document.querySelector('.user-post__username');
@@ -124,7 +124,7 @@ popupBgCloseButt.addEventListener('click',()=>{
   kusVideoContent.pause();
 })
 
-adsCard.forEach((el)=>{
+animationCard.forEach((el)=>{
   el.addEventListener('click',()=>{
     el.classList.add('hidden');
   })
