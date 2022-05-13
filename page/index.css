@@ -26,6 +26,8 @@
 @import url(../blocks/login-card/__label/login-card__label.css);
 @import url(../blocks/login-card/__input/login-card__input.css);
 @import url(../blocks/login-card/__button/login-card__button.css);
+@import url(../blocks/login-card/__lang-links/login-card__lang-links.css);
+@import url(../blocks/login-card/__lang-link/login-card__lang-link.css);
 
 @import url(../blocks/avatar-column/avatar-column.css);
 

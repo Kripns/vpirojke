@@ -1,7 +1,10 @@
 .pics-card__items {
-  display: grid;
+  /* display: grid;
   grid-auto-flow: column;
   column-gap: 3%;
-  grid-template-rows: 75%;
+  grid-template-rows: 75%; */
+  display: flex;
+  gap: 3%;
+  font-size: 0;
   box-sizing: border-box;
 }
