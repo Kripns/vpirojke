@@ -122,6 +122,15 @@ popupBgCloseButt.addEventListener('click',()=>{
   popupBg.classList.remove('active');
   kusVideo.classList.remove('active');
   kusVideoContent.pause();
+  if(popupBg.classList.contains('sidebar-active')){
+    popupBg.classList.remove('sidebar-active');
+  }
+  if(loginCard.classList.contains('active')){
+    loginCard.classList.remove('active');
+  }
+  if(sidebar.classList.contains('active')){
+    sidebar.classList.remove('active');
+  }
 })
 
 animationCard.forEach((el)=>{
