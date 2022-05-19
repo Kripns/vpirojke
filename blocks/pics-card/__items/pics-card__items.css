@@ -1,10 +1,20 @@
 .pics-card__items {
-  /* display: grid;
+  display: grid;
   grid-auto-flow: column;
-  column-gap: 3%;
-  grid-template-rows: 75%; */
-  display: flex;
+  grid-template-rows: 75%;
   gap: 3%;
   font-size: 0;
   box-sizing: border-box;
+}
+
+@supports not (display: grid) {
+  .pics-card__items {
+    display: flex;
+  }
+}
+
+@supports not (grid-template-rows: 75%) {
+  .pics-card__items {
+    display: flex;
+  }
 }

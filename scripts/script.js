@@ -15,7 +15,6 @@ loginCardButtonTypeLogin.addEventListener('click',()=>{
 
 //                              закрываем на кнопку Я
 
-
 const loginPopupButton = document.querySelector('.login-popup__button');
 
 loginPopupButton.addEventListener('click',()=>{
