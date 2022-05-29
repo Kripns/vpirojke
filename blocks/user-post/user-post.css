@@ -4,10 +4,6 @@
   box-sizing: border-box;
   border: none;
   border-bottom: 1px solid rgb(220, 225, 230);
-  display: none;
   gap: 20px;
 }
 
-.user-post.active {
-  display: flex;
-}

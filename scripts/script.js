@@ -219,10 +219,19 @@ animationCard.forEach((el)=>{
 //                          "публикуем" пост нажав на кнопку Да
 
 const postsCardButton = document.querySelector('.posts-card__button');
-const userPost = document.querySelector('.user-post');
 
 postsCardButton.addEventListener('click',()=>{
-  userPost.classList.add('active');
+  const postsCardForm = document.querySelector('.posts-card__form');
+  const postsCardTextarea = document.querySelector('.posts-card__textarea');
+  postsCardForm.insertAdjacentHTML("afterend",
+  `<article class="user-post">
+    <a class="user-post__link link" href="./index.html">
+      <img class="user-post__pic" src="./media/images/200171700992_342955.jpg" alt="мини аватарка">
+      <h3 class="user-post__username">Jeki Jones</h3>
+    </a>
+    <p class="user-post__text">${postsCardTextarea.value}</p>
+  </article>`);
+  postsCardTextarea.value = '';
 })
 
 
