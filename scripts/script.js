@@ -1,37 +1,72 @@
 
 //                              открываем модалку регистрации
 //                              прячем крестик бэкграунда
+//                              заполняем инпуты данными со страницы
 
 const loginCardButtonTypeLogin = document.querySelector('.login-card__button_type_login');
 const popupBg = document.querySelector('.popup-bg');
 const loginPopup = document.querySelector('.login-popup');
 const popupBgCloseButt = document.querySelector('.popup-bg__close-butt');
 
-loginCardButtonTypeLogin.addEventListener('click',()=>{
-  popupBg.classList.add('active');
-  loginPopup.classList.add('active');
+const loginPopupUserName = document.getElementById('name');
+const profileCardUserName = document.querySelector('.profile-card__user-name');
+
+const loginPopupBirthday = document.getElementById('birthday');
+const infoCardItemTypeBirhday = document.querySelector('.info-card__item_type_birhday');
+
+const loginPopupEars = document.getElementById('ears');
+const infoCardItemTypeEars = document.querySelector('.info-card__item_type_ears');
+
+const loginPopupTail = document.getElementById('tail');
+const infoCardItemTypeTail = document.querySelector('.info-card__item_type_tail');
+
+//отслеживаем клик по кнопке регистрация
+
+loginCardButtonTypeLogin.addEventListener('click',()=> {
+  loginPopupUserName.value = profileCardUserName.textContent;
+  loginPopupEars.value = infoCardItemTypeEars.textContent;
+  loginPopupTail.value = infoCardItemTypeTail.textContent;
+
+  [popupBg, loginPopup].forEach(el => el.classList.add('active'));
   popupBgCloseButt.classList.add('invisible');
-})
+});
+
 
 //                              закрываем на кнопку Я
+//                              заполняем профиль данными из формы
+//                              меняем формат отображения даты
 
 const loginPopupButton = document.querySelector('.login-popup__button');
+const dateFormatChanger = (date) => {
+  return date.split('-').reverse().join('.') + ' года';
+}
 
-loginPopupButton.addEventListener('click',()=>{
-  popupBg.classList.remove('active');
-  loginPopup.classList.remove('active');
+//отслеживаем клик по кнопке Я
+
+loginPopupButton.addEventListener('click',() => {
+
+  profileCardUserName.textContent = loginPopupUserName.value;
+  infoCardItemTypeBirhday.textContent = dateFormatChanger(loginPopupBirthday.value);
+  infoCardItemTypeEars.textContent = loginPopupEars.value;
+  infoCardItemTypeTail.textContent = loginPopupTail.value;
+
+  [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
   popupBgCloseButt.classList.remove('invisible');
-})
+
+});
+
 
 //                             закрываем на крестик
 
 const loginPopupCloseButt = document.querySelector('.login-popup__close-butt');
 
+//отслеживаем клик по крестику
+
 loginPopupCloseButt.addEventListener('click',()=>{
-  popupBg.classList.remove('active');
-  loginPopup.classList.remove('active');
+  [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
   popupBgCloseButt.classList.remove('invisible');
-})
+});
+
 
 //                              меняем тему на девчачую
 
@@ -46,20 +81,23 @@ const userPostUsername = document.querySelector('.user-post__username');
 
 loginPopupRadioButtonTypeGirl.addEventListener('click',()=>{
   loginPopupHeading.textContent='Кто хорошая девочка?';
-  page.classList.add('girl');
-  loginPopup.classList.add('girl');
-  header.classList.add('girl');
-  userPostUsername.classList.add('girl');
-  button.forEach((el)=>{
+
+  [page, loginPopup, header, userPostUsername].forEach(el => el.classList.add('girl'));
+
+   button.forEach((el)=>{
+     el.classList.add('girl')
+   });
+
+   cardText.forEach((el)=>{
     el.classList.add('girl');
-  })
-  cardText.forEach((el)=>{
+   });
+
+   counterNumbers.forEach((el)=>{
     el.classList.add('girl');
-  })
-  counterNumbers.forEach((el)=>{
-    el.classList.add('girl');
-  })
-})
+   });
+});
+
+
 
 //                                меняем тему на пацанячую
 
@@ -67,10 +105,9 @@ const loginPopupRadioButtonTypeBoy = document.getElementById('boy');
 
 loginPopupRadioButtonTypeBoy.addEventListener('click',()=>{
   loginPopupHeading.textContent='Кто хороший мальчик?';
-  page.classList.remove('girl');
-  loginPopup.classList.remove('girl');
-  header.classList.remove('girl');
-  userPostUsername.classList.remove('girl');
+
+  [page, loginPopup, header, userPostUsername].forEach(el => el.classList.remove('girl'));
+
   button.forEach((el)=>{
     el.classList.remove('girl');
   })
@@ -89,20 +126,18 @@ const loginCardLink = document.querySelector('.login-card__link');
 const linkPopup = document.querySelector('.link-popup');
 
 loginCardLink.addEventListener('click',()=>{
-  popupBg.classList.add('active');
-  linkPopup.classList.add('active');
+  [popupBg, linkPopup].forEach(el => el.classList.add('active'));
   popupBgCloseButt.classList.add('invisible');
-})
+});
 
 //                    закрываем модалку на кнопку ниняю
 
 const linkPopupButton = document.querySelector('.link-popup__button');
 
 linkPopupButton.addEventListener('click',()=>{
-  popupBg.classList.remove('active');
-  linkPopup.classList.remove('active');
+  [popupBg, linkPopup].forEach(el => el.classList.remove('active'));
   popupBgCloseButt.classList.remove('invisible');
-})
+});
 
 //                      открываем модалку на кнопку гавгав
 //                      добавляем счетчик
@@ -113,21 +148,19 @@ const gavgavPopup = document.querySelector('.gavgav-popup');
 const counterNumbersTypeGavgav = document.querySelector('.counter__numbers_type_gavgav');
 
 avatarCardButtonGav.addEventListener('click',()=>{
-  popupBg.classList.add('active');
-  gavgavPopup.classList.add('active');
+  [popupBg, gavgavPopup].forEach(el => el.classList.add('active'));
   popupBgCloseButt.classList.add('invisible');
   counterNumbersTypeGavgav.textContent=Number(counterNumbersTypeGavgav.textContent)+1;
-})
+});
 
 //                        закрываем на кнопку дя
 
 const gavgavPopupButton = document.querySelector('.gavgav-popup__button');
 
 gavgavPopupButton.addEventListener('click',()=>{
-  popupBg.classList.remove('active');
-  gavgavPopup.classList.remove('active');
+  [popupBg, gavgavPopup].forEach(el => el.classList.remove('active'));
   popupBgCloseButt.classList.remove('invisible');
-})
+});
 
 //                          открываем видео на кнопку кусь
 //                          добавляем счетчик
@@ -138,8 +171,7 @@ const kusVideoContent = document.querySelector('.kus-video__content');
 const counterNumbersTypeKus = document.querySelector('.counter__numbers_type_kus');
 
 avatarCardButtonKus.addEventListener('click',()=>{
-  popupBg.classList.add('active');
-  kusVideo.classList.add('active');
+  [popupBg, kusVideo].forEach(el => el.classList.add('active'))
   kusVideoContent.play();
   counterNumbersTypeKus.textContent=Number(counterNumbersTypeKus.textContent)+1;
 })
@@ -152,8 +184,7 @@ const loginCard = document.querySelector('.login-card');
 const sidebar = document.querySelector('.sidebar');
 
 popupBgCloseButt.addEventListener('click',()=>{
-  popupBg.classList.remove('active');
-  kusVideo.classList.remove('active');
+  [popupBg, kusVideo].forEach(el => el.classList.remove('active'))
   kusVideoContent.pause();
   if(popupBg.classList.contains('sidebar-active')){
     popupBg.classList.remove('sidebar-active');

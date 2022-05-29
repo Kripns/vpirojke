@@ -15,7 +15,7 @@
         <p class="header__logo-text">впирожке</p>
       </a>
       <form class="header__search-form">
-        <input class="header__search-box" type="search" name="search" value="Поиск">
+        <input class="header__search-box" type="search" name="search" placeholder="Поиск">
       </form>
     </div>
     <ul class="header__lang-links">
@@ -69,9 +69,9 @@
             <li><p class="info-card__item card-text">Красивое</p></li>
           </ul>
           <ul class="info-card__items">
-            <li><p class="info-card__item card-text">1 Мая 2020 года</p></li>
-            <li><p class="info-card__item card-text">Висюльки</p></li>
-            <li><p class="info-card__item card-text">Крендель</p></li>
+            <li><p class="info-card__item card-text info-card__item_type_birhday">01.05.2020 года</p></li>
+            <li><p class="info-card__item card-text info-card__item_type_ears">Висюльки</p></li>
+            <li><p class="info-card__item card-text info-card__item_type_tail">Крендель</p></li>
             <li><p class="info-card__item card-text">Да</p></li>
           </ul>
         </div>
@@ -121,6 +121,11 @@
       </div>
     </section>
   </main>
+  <footer class="footer">
+    <h3 class="footer__heading">Я просто наступил на папин камплюктер и сделал интырнэт</h3>
+    <a class="footer__link link" href="https://github.com/Kripns" target="_blank" >Ссылка на папины интырнэты</a>
+    <p class="footer__info">© Jeki 2022</p>
+  </footer>
   <div class="popup-bg">
     <img
       class="popup-bg__close-butt close-butt"
@@ -150,16 +155,25 @@
           <label class="login-popup__label" for="birthday">День рождения пирожка</label>
         </div>
         <div class="login-popup__input-container">
-          <input class="login-popup__input" type="text" id="ears">
+          <select class="login-popup__input" type="text" id="ears">
+            <option value="Висюльки">Висюльки</option>
+            <option value="Уголки">Уголки</option>
+            <option value="Смешные">Смешные</option>
+          </select>
           <label class="login-popup__label" for="ears">Какие ушки</label>
         </div>
         <div class="login-popup__input-container">
-          <input class="login-popup__input" type="text" id="tail">
+          <select class="login-popup__input" type="text" id="tail">
+            <option value="Крендель">Крендель</option>
+            <option value="Антенна">Антенна</option>
+            <option value="Висюлька">Висюлька</option>
+            <option value="Маленький">Маленький</option>
+          </select>
           <label class="login-popup__label" for="tail">Какой хвостик</label>
         </div>
         <div class="login-popup__checkbox-container">
           <label class="login-popup__checkbox-label" for="beauty">Красивое</label>
-          <input class="login-popup__checkbox-input" type="checkbox" id="beauty" checked>
+          <input class="login-popup__checkbox-input" type="checkbox" id="beauty" checked disabled>
         </div>
           <button class="login-popup__button" type="button">Я</button>
       </fieldset>
@@ -182,11 +196,6 @@
       Почемуто не работает. Наверное плохой камплюктер.
     </video>
   </div>
-  <footer class="footer">
-    <h3 class="footer__heading">Я просто наступил на папин камплюктер и сделал интырнэт</h3>
-    <a class="footer__link link" href="https://github.com/Kripns" target="_blank" >Ссылка на папины интырнэты</a>
-    <p class="footer__info">© Jeki 2022</p>
-  </footer>
   <script src="./scripts/script.js"></script>
 </body>
 </html>

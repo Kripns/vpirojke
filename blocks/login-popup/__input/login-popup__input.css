@@ -3,6 +3,7 @@
   border: none;
   outline: none;
   border-bottom: 1px solid rgb(132, 132, 133);
+  cursor: pointer;
 }
 
 .login-popup__input:focus+.login-popup__label {
