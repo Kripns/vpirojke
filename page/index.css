@@ -65,6 +65,8 @@
 @import url(../blocks/posts-card/__textarea/posts-card__textarea.css);
 @import url(../blocks/posts-card/__button/posts-card__button.css);
 
+@import url(../blocks/posts-list/posts-list.css);
+
 @import url(../blocks/user-post/user-post.css);
 @import url(../blocks/user-post/__link/user-post__link.css);
 @import url(../blocks/user-post/__pic/user-post__pic.css);

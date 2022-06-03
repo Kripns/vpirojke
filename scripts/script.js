@@ -1,7 +1,8 @@
 
-//                              открываем модалку регистрации
-//                              прячем крестик бэкграунда
-//                              заполняем инпуты данными со страницы
+//                          Открываем модалку регистрации
+//                          Прячем крестик бэкграунда
+//                          Заполняем инпуты данными со страницы
+//                          Конвертируем дату в нужный для инпута формат
 
 const loginCardButtonTypeLogin = document.querySelector('.login-card__button_type_login');
 const popupBg = document.querySelector('.popup-bg');
@@ -20,16 +21,26 @@ const infoCardItemTypeEars = document.querySelector('.info-card__item_type_ears'
 const loginPopupTail = document.getElementById('tail');
 const infoCardItemTypeTail = document.querySelector('.info-card__item_type_tail');
 
-//отслеживаем клик по кнопке регистрация
+// Функция меняет формат даты рождения со страницы
+// для дальнейшего заполнения ей инпута в логин-попап
+function dateFormatChangerForPopup (dateFromPage) {
+  return dateFromPage.slice(0, dateFromPage.length - 5).split('.').reverse().join('-');
+};
 
-loginCardButtonTypeLogin.addEventListener('click',()=> {
+
+function openLoginPopup() {
   loginPopupUserName.value = profileCardUserName.textContent;
+  loginPopupBirthday.value = dateFormatChangerForPopup(infoCardItemTypeBirhday.textContent);
   loginPopupEars.value = infoCardItemTypeEars.textContent;
   loginPopupTail.value = infoCardItemTypeTail.textContent;
 
   [popupBg, loginPopup].forEach(el => el.classList.add('active'));
   popupBgCloseButt.classList.add('invisible');
-});
+};
+
+//отслеживаем клик по кнопке регистрация
+
+loginCardButtonTypeLogin.addEventListener('click',openLoginPopup);
 
 
 //                              закрываем на кнопку Я
@@ -37,23 +48,26 @@ loginCardButtonTypeLogin.addEventListener('click',()=> {
 //                              меняем формат отображения даты
 
 const loginPopupButton = document.querySelector('.login-popup__button');
-const dateFormatChanger = (date) => {
-  return date.split('-').reverse().join('.') + ' года';
-}
 
-//отслеживаем клик по кнопке Я
+// Функция меняет формат даты рождения для отображения на странице
+function dateFormatChangerForPage (dateFromPopup) {
+  return dateFromPopup.split('-').reverse().join('.') + ' года';
+};
 
-loginPopupButton.addEventListener('click',() => {
 
+
+function closeLoginPopup() {
   profileCardUserName.textContent = loginPopupUserName.value;
-  infoCardItemTypeBirhday.textContent = dateFormatChanger(loginPopupBirthday.value);
+  infoCardItemTypeBirhday.textContent = dateFormatChangerForPage(loginPopupBirthday.value);
   infoCardItemTypeEars.textContent = loginPopupEars.value;
   infoCardItemTypeTail.textContent = loginPopupTail.value;
 
   [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
   popupBgCloseButt.classList.remove('invisible');
+};
 
-});
+//отслеживаем клик по кнопке Я
+loginPopupButton.addEventListener('click', closeLoginPopup);
 
 
 //                             закрываем на крестик
@@ -61,63 +75,84 @@ loginPopupButton.addEventListener('click',() => {
 const loginPopupCloseButt = document.querySelector('.login-popup__close-butt');
 
 //отслеживаем клик по крестику
-
 loginPopupCloseButt.addEventListener('click',()=>{
   [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
   popupBgCloseButt.classList.remove('invisible');
 });
 
 
-//                              меняем тему на девчачую
+//                             Меняем цветовую тему
 
+// Находим темплейт
+// Объявляем переменную, присваиваем ей значение дефолтной темы
+
+const postTemplate = document
+.querySelector('.post-template')
+.content
+.querySelector('.user-post');
+
+let theme = 'boy';
+
+// Объявляем функцию смены тем
+// Находим все элементы к которым темы будут применяться
+// Добавляем или удаляем класс с девчачей темой (пацанячая дефолтная)
+function updateTheme() {
+  const userPostUsernames = document.querySelectorAll('.user-post__username');
+  userPostUsernames.forEach(userPostUsername =>{
+    userPostUsername.classList.toggle('girl')
+  });
+
+  const page = document.querySelector('.page');
+  const header = document.querySelector('.header');
+  [page, loginPopup, header].forEach(el => el.classList.toggle('girl'));
+
+  const button = document.querySelectorAll('.button');
+  button.forEach((el)=>{
+    el.classList.toggle('girl');
+  });
+
+  const cardText = document.querySelectorAll('.card-text');
+  cardText.forEach((el)=>{
+    el.classList.toggle('girl');
+  });
+
+  const counterNumbers = document.querySelectorAll('.counter__numbers');
+  counterNumbers.forEach((el)=>{
+    el.classList.toggle('girl');
+  });
+};
+
+//                      Меняем тему на девчачую
+
+// Находим радиокнопку выбора девчачей темы
+// и заголовок в логин-попап (он меняется по нажатию на радиокнопки)
 const loginPopupRadioButtonTypeGirl = document.getElementById('girl');
 const loginPopupHeading = document.querySelector('.login-popup__heading');
-const page = document.querySelector('.page');
-const button = document.querySelectorAll('.button');
-const cardText = document.querySelectorAll('.card-text');
-const counterNumbers = document.querySelectorAll('.counter__numbers');
-const header = document.querySelector('.header');
-const userPostUsername = document.querySelector('.user-post__username');
 
+// Отслеживаем клик по кнопке
+// Меняем значение темы в переменной
+// Меняем заголовок в логин-попап
+// Вызываем функцию смены темы
 loginPopupRadioButtonTypeGirl.addEventListener('click',()=>{
+  theme = 'girl';
   loginPopupHeading.textContent='Кто хорошая девочка?';
-
-  [page, loginPopup, header, userPostUsername].forEach(el => el.classList.add('girl'));
-
-   button.forEach((el)=>{
-     el.classList.add('girl')
-   });
-
-   cardText.forEach((el)=>{
-    el.classList.add('girl');
-   });
-
-   counterNumbers.forEach((el)=>{
-    el.classList.add('girl');
-   });
+  updateTheme();
 });
 
+//                      Меняем тему на пацанячую
 
-
-//                                меняем тему на пацанячую
-
+// Находим радиокнопку выбора пацанячей темы
 const loginPopupRadioButtonTypeBoy = document.getElementById('boy');
 
+// Отслеживаем клик по кнопке
+// Меняем значение темы в переменной
+// Меняем заголовок в логин-попап
+// Вызываем функцию смены темы
 loginPopupRadioButtonTypeBoy.addEventListener('click',()=>{
+  theme = 'boy';
   loginPopupHeading.textContent='Кто хороший мальчик?';
-
-  [page, loginPopup, header, userPostUsername].forEach(el => el.classList.remove('girl'));
-
-  button.forEach((el)=>{
-    el.classList.remove('girl');
-  })
-  cardText.forEach((el)=>{
-    el.classList.remove('girl');
-  })
-  counterNumbers.forEach((el)=>{
-    el.classList.remove('girl');
-  })
-})
+  updateTheme();
+});
 
 //                    открываем модалку по ссылке "забыли куда нажимать"
 //                    прячем крестик бэкграунда
@@ -171,10 +206,10 @@ const kusVideoContent = document.querySelector('.kus-video__content');
 const counterNumbersTypeKus = document.querySelector('.counter__numbers_type_kus');
 
 avatarCardButtonKus.addEventListener('click',()=>{
-  [popupBg, kusVideo].forEach(el => el.classList.add('active'))
+  [popupBg, kusVideo].forEach(el => el.classList.add('active'));
   kusVideoContent.play();
-  counterNumbersTypeKus.textContent=Number(counterNumbersTypeKus.textContent)+1;
-})
+  counterNumbersTypeKus.textContent = Number(counterNumbersTypeKus.textContent)+1;
+});
 
 //                        закрываем на крестик бэкграунда
 //                        также прячем сайдбар логин-кард на этот крестик,
@@ -184,18 +219,18 @@ const loginCard = document.querySelector('.login-card');
 const sidebar = document.querySelector('.sidebar');
 
 popupBgCloseButt.addEventListener('click',()=>{
-  [popupBg, kusVideo].forEach(el => el.classList.remove('active'))
+  [popupBg, kusVideo].forEach(el => el.classList.remove('active'));
   kusVideoContent.pause();
-  if(popupBg.classList.contains('sidebar-active')){
+  if(popupBg.classList.contains('sidebar-active')) {
     popupBg.classList.remove('sidebar-active');
-  }
-  if(loginCard.classList.contains('active')){
+  };
+  if(loginCard.classList.contains('active')) {
     loginCard.classList.remove('active');
-  }
-  if(sidebar.classList.contains('active')){
+  };
+  if(sidebar.classList.contains('active')) {
     sidebar.classList.remove('active');
-  }
-})
+  };
+});
 
 //                          нажимаем на кнопку с лапкой(sidebar) и
 //                          выдвигаем сайдбар логин-кард
@@ -213,25 +248,36 @@ const animationCard = document.querySelectorAll('.animation-card');
 animationCard.forEach((el)=>{
   el.addEventListener('click',()=>{
     el.classList.add('hidden');
-  })
-})
+  });
+});
 
-//                          "публикуем" пост нажав на кнопку Да
 
+//                      публикуем пост нажав на кнопку Отправить
+
+
+// Находим кнопку Отправить
 const postsCardButton = document.querySelector('.posts-card__button');
 
-postsCardButton.addEventListener('click',()=>{
-  const postsCardForm = document.querySelector('.posts-card__form');
+// Отслеживаем клик по кнопке
+// Клонируем содержимое темплейта
+// Добавляем  девчачую тему в имя отправителя,
+// если она выбрана
+// Вставляем текст из поля ввода в сообщение
+// Вставляем всю карточку с постом на страницу
+// Очищием поле ввода
+postsCardButton.addEventListener('click', () => {
+  const userPost =  postTemplate.cloneNode(true);
   const postsCardTextarea = document.querySelector('.posts-card__textarea');
-  postsCardForm.insertAdjacentHTML("afterend",
-  `<article class="user-post">
-    <a class="user-post__link link" href="./index.html">
-      <img class="user-post__pic" src="./media/images/200171700992_342955.jpg" alt="мини аватарка">
-      <h3 class="user-post__username">Jeki Jones</h3>
-    </a>
-    <p class="user-post__text">${postsCardTextarea.value}</p>
-  </article>`);
-  postsCardTextarea.value = '';
-})
+  const userPostText = userPost.querySelector('.user-post__text');
+  const userPostUsername = userPost.querySelector('.user-post__username');
+  const postsList = document.querySelector('.posts-list');
 
+  if (theme === 'girl') {
+    userPostUsername.classList.add('.girl');
+  };
+
+  userPostText.textContent = postsCardTextarea.value;
+  postsList.prepend(userPost);
+  postsCardTextarea.value = '';
+});
 
