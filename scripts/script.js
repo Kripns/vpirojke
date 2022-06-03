@@ -43,9 +43,9 @@ function openLoginPopup() {
 loginCardButtonTypeLogin.addEventListener('click',openLoginPopup);
 
 
-//                              закрываем на кнопку Я
-//                              заполняем профиль данными из формы
-//                              меняем формат отображения даты
+//                           Закрываем на кнопку Я
+//                           Заполняем профиль данными из формы
+//                           Меняем формат отображения даты на странице
 
 const loginPopupButton = document.querySelector('.login-popup__button');
 
@@ -70,7 +70,7 @@ function closeLoginPopup() {
 loginPopupButton.addEventListener('click', closeLoginPopup);
 
 
-//                             закрываем на крестик
+//                             Закрываем на крестик
 
 const loginPopupCloseButt = document.querySelector('.login-popup__close-butt');
 
@@ -154,8 +154,8 @@ loginPopupRadioButtonTypeBoy.addEventListener('click',()=>{
   updateTheme();
 });
 
-//                    открываем модалку по ссылке "забыли куда нажимать"
-//                    прячем крестик бэкграунда
+//                    Открываем модалку по ссылке "забыли куда нажимать"
+//                    Прячем крестик бэкграунда
 
 const loginCardLink = document.querySelector('.login-card__link');
 const linkPopup = document.querySelector('.link-popup');
@@ -165,7 +165,7 @@ loginCardLink.addEventListener('click',()=>{
   popupBgCloseButt.classList.add('invisible');
 });
 
-//                    закрываем модалку на кнопку ниняю
+//                    Закрываем модалку на кнопку ниняю
 
 const linkPopupButton = document.querySelector('.link-popup__button');
 
@@ -174,9 +174,9 @@ linkPopupButton.addEventListener('click',()=>{
   popupBgCloseButt.classList.remove('invisible');
 });
 
-//                      открываем модалку на кнопку гавгав
-//                      добавляем счетчик
-//                      прячем крестик бэкграунда
+//                      Открываем модалку на кнопку гавгав
+//                      Добавляем счетчик
+//                      Прячем крестик бэкграунда
 
 const avatarCardButtonGav = document.querySelector('.avatar-card__button_type_gav');
 const gavgavPopup = document.querySelector('.gavgav-popup');
@@ -188,7 +188,7 @@ avatarCardButtonGav.addEventListener('click',()=>{
   counterNumbersTypeGavgav.textContent=Number(counterNumbersTypeGavgav.textContent)+1;
 });
 
-//                        закрываем на кнопку дя
+//                        Закрываем на кнопку дя
 
 const gavgavPopupButton = document.querySelector('.gavgav-popup__button');
 
@@ -197,8 +197,8 @@ gavgavPopupButton.addEventListener('click',()=>{
   popupBgCloseButt.classList.remove('invisible');
 });
 
-//                          открываем видео на кнопку кусь
-//                          добавляем счетчик
+//                          Открываем видео на кнопку кусь
+//                          Добавляем счетчик
 
 const avatarCardButtonKus = document.querySelector('.avatar-card__button_type_kus');
 const kusVideo = document.querySelector('.kus-video');
@@ -211,9 +211,9 @@ avatarCardButtonKus.addEventListener('click',()=>{
   counterNumbersTypeKus.textContent = Number(counterNumbersTypeKus.textContent)+1;
 });
 
-//                        закрываем на крестик бэкграунда
-//                        также прячем сайдбар логин-кард на этот крестик,
-//                        когда он активен
+//                        Закрываем на крестик бэкграунда
+//                        Также прячем сайдбар логин-кард на этот крестик,
+//                        Когда он активен
 
 const loginCard = document.querySelector('.login-card');
 const sidebar = document.querySelector('.sidebar');
@@ -232,7 +232,7 @@ popupBgCloseButt.addEventListener('click',()=>{
   };
 });
 
-//                          нажимаем на кнопку с лапкой(sidebar) и
+//                          Нажимаем на кнопку с лапкой(sidebar) и
 //                          выдвигаем сайдбар логин-кард
 
 sidebar.addEventListener('click',()=>{
@@ -241,7 +241,7 @@ sidebar.addEventListener('click',()=>{
   loginCard.classList.toggle('active');
 })
 
-//                          прячем гипнотические карточки по клику на них
+//                          Прячем гипнотические карточки по клику на них
 
 const animationCard = document.querySelectorAll('.animation-card');
 
@@ -252,7 +252,7 @@ animationCard.forEach((el)=>{
 });
 
 
-//                      публикуем пост нажав на кнопку Отправить
+//                      Публикуем пост нажав на кнопку Отправить
 
 
 // Находим кнопку Отправить
