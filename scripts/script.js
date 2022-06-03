@@ -273,11 +273,10 @@ postsCardButton.addEventListener('click', () => {
   const postsList = document.querySelector('.posts-list');
 
   if (theme === 'girl') {
-    userPostUsername.classList.add('.girl');
+    userPostUsername.classList.add('girl');
   };
 
   userPostText.textContent = postsCardTextarea.value;
   postsList.prepend(userPost);
   postsCardTextarea.value = '';
 });
-

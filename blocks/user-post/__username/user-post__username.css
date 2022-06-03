@@ -3,6 +3,8 @@
   color: rgb(42, 88, 133);
 }
 
+
 .user-post__username.girl {
   filter: hue-rotate(115deg);
 }
+
