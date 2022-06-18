@@ -11,18 +11,20 @@ const popupBgCloseButt = document.querySelector('.popup-bg__close-butt');
 const signInPopupNameInput = document.getElementById('name');
 const profileCardUserName = document.querySelector('.profile-card__user-name');
 
-const loginPopupBirthday = document.getElementById('birthday');
-const infoCardItemTypeBirhday = document.querySelector('.info-card__item_type_birhday');
+const birthdayInput = document.getElementById('birthday');
+const userBirhday = document.querySelector('.info-card__item_type_birhday');
 
-const loginPopupEars = document.getElementById('ears');
-const infoCardItemTypeEars = document.querySelector('.info-card__item_type_ears');
+const earsTypeInput = document.getElementById('ears');
+const userEarsType = document.querySelector('.info-card__item_type_ears');
 
-const loginPopupTail = document.getElementById('tail');
-const infoCardItemTypeTail = document.querySelector('.info-card__item_type_tail');
+const tailTypeInput = document.getElementById('tail');
+const userTailType = document.querySelector('.info-card__item_type_tail');
+
+const signInPopupForm = document.querySelector('.popup__form_type_signin');
 
 // Функция меняет формат даты рождения со страницы
 // для дальнейшего заполнения ей инпута в логин-попап
-function dateFormatChangerForPopup (dateFromPage) {
+function convertDateInPopup (dateFromPage) {
   return dateFromPage.slice(0, dateFromPage.length - 5).split('.').reverse().join('-');
 };
 
@@ -31,13 +33,17 @@ function openPopup(popup) {
   popup.classList.add('popup_type_opened');
 };
 
+function closePopup(popup) {
+  popup.classList.remove('popup_type_opened');
+}
+
 //отслеживаем клик по кнопке регистрация
 
 signInButton.addEventListener('click', () => {
   signInPopupNameInput.value = profileCardUserName.textContent;
-  loginPopupBirthday.value = dateFormatChangerForPopup(infoCardItemTypeBirhday.textContent);
-  loginPopupEars.value = infoCardItemTypeEars.textContent;
-  loginPopupTail.value = infoCardItemTypeTail.textContent;
+  birthdayInput.value = convertDateInPopup(userBirhday.textContent);
+  earsTypeInput.value = userEarsType.textContent;
+  tailTypeInput.value = userTailType.textContent;
   openPopup(signInPopup)
 });
 
@@ -49,17 +55,27 @@ signInButton.addEventListener('click', () => {
 // const loginPopupButton = document.querySelector('.login-popup__button');
 
 // Функция меняет формат даты рождения для отображения на странице
-function dateFormatChangerForPage (dateFromPopup) {
+function convertDateOnPage (dateFromPopup) {
   return dateFromPopup.split('-').reverse().join('.') + ' года';
 };
 
+function handleSignInPopup(event) {
+  event.preventDefault();
+  profileCardUserName.textContent = signInPopupNameInput.value;
+  userBirhday.textContent = convertDateOnPage(birthdayInput.value);
+  userEarsType.textContent = earsTypeInput.value;
+  userTailType.textContent = tailTypeInput.value;
+  closePopup(signInPopup)
+}
+
+signInPopupForm.addEventListener('submit', handleSignInPopup);
 
 
 // function closeLoginPopup() {
 //   profileCardUserName.textContent = signInPopupNameInput.value;
-//   infoCardItemTypeBirhday.textContent = dateFormatChangerForPage(loginPopupBirthday.value);
-//   infoCardItemTypeEars.textContent = loginPopupEars.value;
-//   infoCardItemTypeTail.textContent = loginPopupTail.value;
+//   userBirhday.textContent = convertDateOnPage(birthdayInput.value);
+  userEarsType.textContent = earsTypeInput.value;
+  userTailType.textContent = tailTypeInput.value;
 
 //   [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
 //   popupBgCloseButt.classList.remove('invisible');
