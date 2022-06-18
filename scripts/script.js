@@ -1,9 +1,4 @@
 
-//                          Открываем попап регистрации
-//                          Прячем крестик бэкграунда
-//                          Заполняем инпуты данными со страницы
-//                          Конвертируем дату в нужный для инпута формат
-
 const signInButton = document.querySelector('.login-card__button_type_signin');
 const signInPopup = document.querySelector('.popup_type_signin');
 const popupBgCloseButt = document.querySelector('.popup-bg__close-butt');
@@ -22,12 +17,22 @@ const userTailType = document.querySelector('.info-card__item_type_tail');
 
 const signInPopupForm = document.querySelector('.popup__form_type_signin');
 
+const popupCloseButton = document.querySelector('.popup__close-button');
+
+const loginCardLink = document.querySelector('.login-card__link');
+const forgetPopup = document.querySelector('.popup_type_forget');
+const forgetPopupButton = document.querySelector('.button_place_forget-popup');
+
 // Функция меняет формат даты рождения со страницы
 // для дальнейшего заполнения ей инпута в логин-попап
-function convertDateInPopup (dateFromPage) {
+function convertDateForInput (dateFromPage) {
   return dateFromPage.slice(0, dateFromPage.length - 5).split('.').reverse().join('-');
 };
 
+// Функция меняет формат даты рождения для отображения на странице
+function convertDateOnPage (dateFromPopup) {
+  return dateFromPopup.split('-').reverse().join('.') + ' года';
+};
 
 function openPopup(popup) {
   popup.classList.add('popup_type_opened');
@@ -35,28 +40,6 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_type_opened');
-}
-
-//отслеживаем клик по кнопке регистрация
-
-signInButton.addEventListener('click', () => {
-  signInPopupNameInput.value = profileCardUserName.textContent;
-  birthdayInput.value = convertDateInPopup(userBirhday.textContent);
-  earsTypeInput.value = userEarsType.textContent;
-  tailTypeInput.value = userTailType.textContent;
-  openPopup(signInPopup)
-});
-
-
-//                           Закрываем на кнопку Я
-//                           Заполняем профиль данными из формы
-//                           Меняем формат отображения даты на странице
-
-// const loginPopupButton = document.querySelector('.login-popup__button');
-
-// Функция меняет формат даты рождения для отображения на странице
-function convertDateOnPage (dateFromPopup) {
-  return dateFromPopup.split('-').reverse().join('.') + ' года';
 };
 
 function handleSignInPopup(event) {
@@ -66,34 +49,51 @@ function handleSignInPopup(event) {
   userEarsType.textContent = earsTypeInput.value;
   userTailType.textContent = tailTypeInput.value;
   closePopup(signInPopup)
-}
+};
 
+
+
+//Отслеживаем клик по кнопке регистрация
+//Заполняем инпуты данными со страницы
+//Конвертируем дату со страницы в нужный для инпута формат
+//Открываем попап регистрации
+signInButton.addEventListener('click', () => {
+  signInPopupNameInput.value = profileCardUserName.textContent;
+  earsTypeInput.value = userEarsType.textContent;
+  tailTypeInput.value = userTailType.textContent;
+  birthdayInput.value = convertDateForInput(userBirhday.textContent);
+  openPopup(signInPopup)
+});
+
+//Закрываем попап регистрации на кнопку Я
 signInPopupForm.addEventListener('submit', handleSignInPopup);
 
+//Закрываем попап регистрации на крестик
+popupCloseButton.addEventListener('click', () => closePopup(signInPopup));
 
-// function closeLoginPopup() {
-//   profileCardUserName.textContent = signInPopupNameInput.value;
-//   userBirhday.textContent = convertDateOnPage(birthdayInput.value);
-  userEarsType.textContent = earsTypeInput.value;
-  userTailType.textContent = tailTypeInput.value;
+//Открываем попап по ссылке "забыли куда нажимать"
+loginCardLink.addEventListener('click', () => openPopup(forgetPopup));
 
-//   [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
-//   popupBgCloseButt.classList.remove('invisible');
-// };
-
-//отслеживаем клик по кнопке Я
-// loginPopupButton.addEventListener('click', closeLoginPopup);
+//Закрываем попап на кнопку Ниняю
+forgetPopupButton.addEventListener('click', () => closePopup(forgetPopup));
 
 
-//                             Закрываем на крестик
+// //                    Закрываем попап на кнопку ниняю
 
-// const loginPopupCloseButt = document.querySelector('.login-popup__close-butt');
+// const linkPopupButton = document.querySelector('.link-popup__button');
 
-// //отслеживаем клик по крестику
-// loginPopupCloseButt.addEventListener('click',()=>{
-//   [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
+// linkPopupButton.addEventListener('click',()=>{
+//   [popupBg, linkPopup].forEach(el => el.classList.remove('active'));
 //   popupBgCloseButt.classList.remove('invisible');
 // });
+
+
+
+
+
+
+
+
 
 
 //                             Меняем цветовую тему
@@ -169,27 +169,9 @@ loginPopupRadioButtonTypeBoy.addEventListener('click',()=>{
   updateTheme();
 });
 
-//                    Открываем модалку по ссылке "забыли куда нажимать"
-//                    Прячем крестик бэкграунда
 
-// const loginCardLink = document.querySelector('.login-card__link');
-// const linkPopup = document.querySelector('.link-popup');
 
-// loginCardLink.addEventListener('click',()=>{
-//   [popupBg, linkPopup].forEach(el => el.classList.add('active'));
-//   popupBgCloseButt.classList.add('invisible');
-// });
-
-// //                    Закрываем модалку на кнопку ниняю
-
-// const linkPopupButton = document.querySelector('.link-popup__button');
-
-// linkPopupButton.addEventListener('click',()=>{
-//   [popupBg, linkPopup].forEach(el => el.classList.remove('active'));
-//   popupBgCloseButt.classList.remove('invisible');
-// });
-
-//                      Открываем модалку на кнопку гавгав
+//                      Открываем попап на кнопку гавгав
 //                      Добавляем счетчик
 //                      Прячем крестик бэкграунда
 

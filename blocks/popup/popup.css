@@ -9,8 +9,8 @@
   top: 0;
   left: 0;
   opacity: 0;
+  transform: scale(0);
   visibility: hidden;
-  pointer-events: none;
-  transition: visibility .2s, opacity .4s
+  transition: visibility .2s, opacity .4s, transform .4s;
 }
 
