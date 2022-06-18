@@ -1,15 +1,14 @@
 
-//                          Открываем модалку регистрации
+//                          Открываем попап регистрации
 //                          Прячем крестик бэкграунда
 //                          Заполняем инпуты данными со страницы
 //                          Конвертируем дату в нужный для инпута формат
 
-const loginCardButtonTypeLogin = document.querySelector('.login-card__button_type_login');
-const popupBg = document.querySelector('.popup-bg');
-const loginPopup = document.querySelector('.login-popup');
+const signInButton = document.querySelector('.login-card__button_type_signin');
+const signInPopup = document.querySelector('.popup_type_signin');
 const popupBgCloseButt = document.querySelector('.popup-bg__close-butt');
 
-const loginPopupUserName = document.getElementById('name');
+const signInPopupNameInput = document.getElementById('name');
 const profileCardUserName = document.querySelector('.profile-card__user-name');
 
 const loginPopupBirthday = document.getElementById('birthday');
@@ -28,26 +27,26 @@ function dateFormatChangerForPopup (dateFromPage) {
 };
 
 
-function openLoginPopup() {
-  loginPopupUserName.value = profileCardUserName.textContent;
-  loginPopupBirthday.value = dateFormatChangerForPopup(infoCardItemTypeBirhday.textContent);
-  loginPopupEars.value = infoCardItemTypeEars.textContent;
-  loginPopupTail.value = infoCardItemTypeTail.textContent;
-
-  [popupBg, loginPopup].forEach(el => el.classList.add('active'));
-  popupBgCloseButt.classList.add('invisible');
+function openPopup(popup) {
+  popup.classList.add('popup_type_opened');
 };
 
 //отслеживаем клик по кнопке регистрация
 
-loginCardButtonTypeLogin.addEventListener('click',openLoginPopup);
+signInButton.addEventListener('click', () => {
+  signInPopupNameInput.value = profileCardUserName.textContent;
+  loginPopupBirthday.value = dateFormatChangerForPopup(infoCardItemTypeBirhday.textContent);
+  loginPopupEars.value = infoCardItemTypeEars.textContent;
+  loginPopupTail.value = infoCardItemTypeTail.textContent;
+  openPopup(signInPopup)
+});
 
 
 //                           Закрываем на кнопку Я
 //                           Заполняем профиль данными из формы
 //                           Меняем формат отображения даты на странице
 
-const loginPopupButton = document.querySelector('.login-popup__button');
+// const loginPopupButton = document.querySelector('.login-popup__button');
 
 // Функция меняет формат даты рождения для отображения на странице
 function dateFormatChangerForPage (dateFromPopup) {
@@ -56,29 +55,29 @@ function dateFormatChangerForPage (dateFromPopup) {
 
 
 
-function closeLoginPopup() {
-  profileCardUserName.textContent = loginPopupUserName.value;
-  infoCardItemTypeBirhday.textContent = dateFormatChangerForPage(loginPopupBirthday.value);
-  infoCardItemTypeEars.textContent = loginPopupEars.value;
-  infoCardItemTypeTail.textContent = loginPopupTail.value;
+// function closeLoginPopup() {
+//   profileCardUserName.textContent = signInPopupNameInput.value;
+//   infoCardItemTypeBirhday.textContent = dateFormatChangerForPage(loginPopupBirthday.value);
+//   infoCardItemTypeEars.textContent = loginPopupEars.value;
+//   infoCardItemTypeTail.textContent = loginPopupTail.value;
 
-  [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
-  popupBgCloseButt.classList.remove('invisible');
-};
+//   [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
+//   popupBgCloseButt.classList.remove('invisible');
+// };
 
 //отслеживаем клик по кнопке Я
-loginPopupButton.addEventListener('click', closeLoginPopup);
+// loginPopupButton.addEventListener('click', closeLoginPopup);
 
 
 //                             Закрываем на крестик
 
-const loginPopupCloseButt = document.querySelector('.login-popup__close-butt');
+// const loginPopupCloseButt = document.querySelector('.login-popup__close-butt');
 
-//отслеживаем клик по крестику
-loginPopupCloseButt.addEventListener('click',()=>{
-  [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
-  popupBgCloseButt.classList.remove('invisible');
-});
+// //отслеживаем клик по крестику
+// loginPopupCloseButt.addEventListener('click',()=>{
+//   [popupBg, loginPopup].forEach(el => el.classList.remove('active'));
+//   popupBgCloseButt.classList.remove('invisible');
+// });
 
 
 //                             Меняем цветовую тему
@@ -157,22 +156,22 @@ loginPopupRadioButtonTypeBoy.addEventListener('click',()=>{
 //                    Открываем модалку по ссылке "забыли куда нажимать"
 //                    Прячем крестик бэкграунда
 
-const loginCardLink = document.querySelector('.login-card__link');
-const linkPopup = document.querySelector('.link-popup');
+// const loginCardLink = document.querySelector('.login-card__link');
+// const linkPopup = document.querySelector('.link-popup');
 
-loginCardLink.addEventListener('click',()=>{
-  [popupBg, linkPopup].forEach(el => el.classList.add('active'));
-  popupBgCloseButt.classList.add('invisible');
-});
+// loginCardLink.addEventListener('click',()=>{
+//   [popupBg, linkPopup].forEach(el => el.classList.add('active'));
+//   popupBgCloseButt.classList.add('invisible');
+// });
 
-//                    Закрываем модалку на кнопку ниняю
+// //                    Закрываем модалку на кнопку ниняю
 
-const linkPopupButton = document.querySelector('.link-popup__button');
+// const linkPopupButton = document.querySelector('.link-popup__button');
 
-linkPopupButton.addEventListener('click',()=>{
-  [popupBg, linkPopup].forEach(el => el.classList.remove('active'));
-  popupBgCloseButt.classList.remove('invisible');
-});
+// linkPopupButton.addEventListener('click',()=>{
+//   [popupBg, linkPopup].forEach(el => el.classList.remove('active'));
+//   popupBgCloseButt.classList.remove('invisible');
+// });
 
 //                      Открываем модалку на кнопку гавгав
 //                      Добавляем счетчик
@@ -218,19 +217,19 @@ avatarCardButtonKus.addEventListener('click',()=>{
 const loginCard = document.querySelector('.login-card');
 const sidebar = document.querySelector('.sidebar');
 
-popupBgCloseButt.addEventListener('click',()=>{
-  [popupBg, kusVideo].forEach(el => el.classList.remove('active'));
-  kusVideoContent.pause();
-  if(popupBg.classList.contains('sidebar-active')) {
-    popupBg.classList.remove('sidebar-active');
-  };
-  if(loginCard.classList.contains('active')) {
-    loginCard.classList.remove('active');
-  };
-  if(sidebar.classList.contains('active')) {
-    sidebar.classList.remove('active');
-  };
-});
+// popupBgCloseButt.addEventListener('click',()=>{
+//   [popupBg, kusVideo].forEach(el => el.classList.remove('active'));
+//   kusVideoContent.pause();
+//   if(popupBg.classList.contains('sidebar-active')) {
+//     popupBg.classList.remove('sidebar-active');
+//   };
+//   if(loginCard.classList.contains('active')) {
+//     loginCard.classList.remove('active');
+//   };
+//   if(sidebar.classList.contains('active')) {
+//     sidebar.classList.remove('active');
+//   };
+// });
 
 //                          Нажимаем на кнопку с лапкой(sidebar) и
 //                          выдвигаем сайдбар логин-кард

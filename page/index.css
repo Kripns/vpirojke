@@ -7,6 +7,7 @@
 @import url(../blocks/link/link.css);
 @import url(../blocks/button/button.css);
 @import url(../blocks/close-butt/close-butt.css);
+@import url(../blocks/girl-theme/girl-theme.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__menu/header__menu.css);
@@ -79,8 +80,7 @@
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_type_opened/popup_type_opened.css);
-@import url(../blocks/popup/__container/);
-@import url(../blocks/popup/__container/_type_signin/popup__container_type_signin.css);
+@import url(../blocks/popup/__container/popup__container.css);
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__heading/popup__heading.css);
 @import url(../blocks/popup/__form/popup__form.css);
