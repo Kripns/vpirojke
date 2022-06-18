@@ -7,7 +7,6 @@
 @import url(../blocks/link/link.css);
 @import url(../blocks/button/button.css);
 @import url(../blocks/close-butt/close-butt.css);
-@import url(../blocks/popup/popup.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__menu/header__menu.css);
@@ -78,22 +77,27 @@
 @import url(../blocks/footer/__info/footer__info.css);
 @import url(../blocks/footer/__link/footer__link.css);
 
-@import url(../blocks/popup-bg/popup-bg.css);
-@import url(../blocks/popup-bg/__close-butt/popup-bg__close-butt.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_type_opened/popup_type_opened.css);
+@import url(../blocks/popup/__container/);
+@import url(../blocks/popup/__container/_type_signin/popup__container_type_signin.css);
+@import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/popup/__heading/popup__heading.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__radio-container/popup__radio-container.css);
+@import url(../blocks/popup/__radio-label/popup__radio-label.css);
+@import url(../blocks/popup/__radio-button/popup__radio-button.css);
+@import url(../blocks/popup/__input-containers/popup__input-containers.css);
+@import url(../blocks/popup/__input-container/popup__input-container.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__label/popup__label.css);
+@import url(../blocks/popup/__checkbox-container/popup__checkbox-container.css);
+@import url(../blocks/popup/__button/popup__button.css);
 
-@import url(../blocks/login-popup/login-popup.css);
-@import url(../blocks/login-popup/__close-butt/login-popup__close-butt.css);
-@import url(../blocks/login-popup/__heading/login-popup__heading.css);
-@import url(../blocks/login-popup/__form/login-popup__form.css);
-@import url(../blocks/login-popup/__radio-container/login-popup__radio-container.css);
-@import url(../blocks/login-popup/__radio-label/login-popup__radio-label.css);
-@import url(../blocks/login-popup/__radio-button/login-popup__radio-button.css);
-@import url(../blocks/login-popup/__input-containers/login-popup__input-containers.css);
-@import url(../blocks/login-popup/__input-container/login-popup__input-container.css);
-@import url(../blocks/login-popup/__input/login-popup__input.css);
-@import url(../blocks/login-popup/__label/login-popup__label.css);
-@import url(../blocks/login-popup/__checkbox-container/login-popup__checkbox-container.css);
-@import url(../blocks/login-popup/__button/login-popup__button.css);
+
+/* @import url(../blocks/popup-bg/popup-bg.css);
+@import url(../blocks/popup-bg/__close-butt/popup-bg__close-butt.css); */
+
 
 @import url(../blocks/link-popup/link-popup.css);
 @import url(../blocks/link-popup/__heading/link-popup__heading.css);
