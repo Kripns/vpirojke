@@ -1,0 +1,15 @@
+.popup__heading {
+  margin: 0;
+}
+
+@media screen and (max-width: 805px) {
+  .popup__heading {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 605px) {
+  .popup__heading {
+    font-size: 20px;
+  }
+}

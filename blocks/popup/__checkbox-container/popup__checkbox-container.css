@@ -1,0 +1,6 @@
+.popup__checkbox-container {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  color: rgb(132, 132, 133);
+}
