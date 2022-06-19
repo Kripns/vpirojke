@@ -45,8 +45,8 @@
         <div class="avatar-card">
           <h1 class="avatar-card__user-name">Jeki Jeremi Jones Junior The Third</h1>
           <img class="avatar-card__pic" src="./media/images/200171700992_342955.jpg" alt="аватарка">
-          <button class="avatar-card__button avatar-card__button_type_gav button">Написать гав гав</button>
-          <button class="avatar-card__button avatar-card__button_type_kus button">Сделать кусь</button>
+          <button class="button button_type_gavgav">Написать гав гав</button>
+          <button class="button button_type_kus">Сделать кусь</button>
         </div>
         <div class="animation-card">
           <p class="animation-card__text">Место для pekлaмы пopнo</p>
@@ -121,11 +121,6 @@
       <a class="footer__link link" href="https://github.com/Kripns" target="_blank" >Ссылка на папины интырнэты</a>
       <p class="footer__info">© Jeki 2022</p>
     </footer>
-    <!-- <div class="popup-bg">
-      <img
-        class="popup-bg__close-button close-button"
-        src="./media/images/close2.jpg" alt="закрыть">
-    </div> -->
     <div class="popup popup_type_signin">
       <div class="popup__container popup__container_type_signin">
         <button class="popup__close-button"></button>
@@ -183,21 +178,20 @@
         <button class="button button_place_forget-popup">Ниняю</button>
       </div>
     </div>
-    <div class="popup">
-      <div class="gavgav-popup popup__container">
-        <h2 class="gavgav-popup__heading">Написать гав гав за вас?</h2>
-        <img class="gavgav-popup__pic" src="./media/images/puppykeyword.jpg" alt="пёсик на ноутбуке">
-        <button class="gavgav-popup__button button">Давайти</button>
+    <div class="popup popup_type_gavgav">
+      <div class="popup__container">
+        <h2 class="popup__heading">Написать гав гав за вас?</h2>
+        <img class="popup__pic" src="./media/images/puppykeyword.jpg" alt="пёсик на ноутбуке">
+        <button class="button button_place_gavgav-popup">Давайти</button>
       </div>
     </div>
-    <div class="popup">
-      <div class="kus-video">
-        <video class="kus-video__content" controls>
-          <source src="./media/video/2_5382322723219311633.mp4" type="video/mp4">
-          <source src="./media/video/2_5382322723219311633.webm" type="video/webm">
-          Почемуто не работает. Наверное плохой камплюктер.
-        </video>
-      </div>
+    <div class="popup popup_type_kus">
+      <button class="popup__close-button popup__close-button_color_grey"></button>
+      <video class="popup__video" controls>
+        <source src="./media/video/2_5382322723219311633.mp4" type="video/mp4">
+        <source src="./media/video/2_5382322723219311633.webm" type="video/webm">
+        Почемуто не работает. Наверное плохой камплюктер.
+      </video>
     </div>
     <template class="post-template">
       <li>

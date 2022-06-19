@@ -10,6 +10,9 @@
 
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_place_forget-popup/button_place_forget-popup.css);
+@import url(../blocks/button/_place_gavgav-popup/button_place_gavgav-popup.css);
+@import url(../blocks/button/_type_gavgav/button_type_gavgav.css);
+@import url(../blocks/button/_type_kus/button_type_kus.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__menu/header__menu.css);
@@ -96,6 +99,8 @@
 @import url(../blocks/popup/__checkbox-container/popup__checkbox-container.css);
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../blocks/popup/__pic/popup__pic.css);
+@import url(../blocks/popup/__video/popup__video.css);
+@import url(../blocks/popup/__close-button/_color_grey/popup__close-button_color_grey.css);
 
 
 /* @import url(../blocks/popup-bg/popup-bg.css);
@@ -106,6 +111,3 @@
 @import url(../blocks/gavgav-popup/__heading/gavgav-popup__heading.css);
 @import url(../blocks/gavgav-popup/__pic/gavgav-popup__pic.css);
 @import url(../blocks/gavgav-popup/__button/gavgav-popup__button.css);
-
-@import url(../blocks/kus-video/kus-video.css);
-@import url(../blocks/kus-video/__content/kus-video__content.css);

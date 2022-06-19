@@ -1,9 +1,0 @@
-.kus-video__content {
-  width: 300px;
-}
-
-@media screen and (max-width: 426px) {
-  .kus-video__content {
-    width: 200px;
-    }
-  }

@@ -3,6 +3,8 @@
   height: 18px;
   align-self: flex-end;
   background: url(../../../media/images/close1.jpg);
+  background-size: cover;
+  background-position: center;
   border: none;
   padding: 0;
   cursor: pointer;
