@@ -7,6 +7,7 @@
 
 @media screen and (max-width: 805px) {
   .login-card {
+    visibility: hidden;
     position: fixed;
     top: 30%;
     left: 2%;
@@ -15,11 +16,12 @@
     box-sizing: border-box;
     border-radius: 5px;
     transform: translate(-110%);
-    transition: transform 1s;
+    transition: visibility .1s, transform 1s;
   }
 }
 
 .login-card.active {
+  visibility: visible;
   transform: translate(1px);
   z-index: 2;
 }
