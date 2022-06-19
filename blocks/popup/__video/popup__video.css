@@ -1,0 +1,9 @@
+.popup__video {
+  width: 300px;
+}
+
+@media screen and (max-width: 426px) {
+  .popup__video {
+    width: 260px;
+  }
+}
