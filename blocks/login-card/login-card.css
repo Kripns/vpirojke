@@ -15,13 +15,5 @@
     padding: 15px;
     box-sizing: border-box;
     border-radius: 5px;
-    transform: translate(-110%);
-    transition: visibility .1s, transform 1s;
   }
-}
-
-.login-card.active {
-  visibility: visible;
-  transform: translate(1px);
-  z-index: 2;
 }

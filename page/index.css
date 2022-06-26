@@ -45,7 +45,11 @@
 @import url(../blocks/animation-card/__text/animation-card__text.css);
 
 @import url(../blocks/sidebar/sidebar.css);
+@import url(../blocks/sidebar/_type_opened/sidebar_type_opened.css);
 @import url(../blocks/sidebar/__button/sidebar__button.css);
+@import url(../blocks/sidebar/__button/_type_active/sidebar__button_type_active.css);
+@import url(../blocks/sidebar/__container/sidebar__container.css);
+@import url(../blocks/sidebar/__container/_type_opened/sidebar__container_type_opened.css);
 
 @import url(../blocks/main-column/main-column.css);
 

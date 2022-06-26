@@ -1,0 +1,17 @@
+.sidebar__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  visibility: hidden;
+  position: fixed;
+  top: 30%;
+  left: 2%;
+  background: rgb(237, 238, 240);
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  transform: translate(-110%);
+  transition: visibility 1s, transform 1s;
+}
+

@@ -1,6 +1,6 @@
 
-//Для попапа регистрации
-const signInButton = document.querySelector('.login-card__button_type_signin');
+//Элементы попапа регистрации
+const signInButtons = document.querySelectorAll('.login-card__button_type_signin');
 const signInPopup = document.querySelector('.popup_type_signin');
 const signInPopupNameInput = document.getElementById('name');
 const profileCardUserName = document.querySelector('.profile-card__user-name');
@@ -13,18 +13,18 @@ const userTailType = document.querySelector('.info-card__item_type_tail');
 const signInPopupForm = document.querySelector('.popup__form_type_signin');
 const popupCloseButton = document.querySelector('.popup__close-button');
 
-//Для попапа "Забыли куда нажимать"
+//Элементы попапа "Забыли куда нажимать"
 const loginCardLink = document.querySelector('.login-card__link');
 const forgetPopup = document.querySelector('.popup_type_forget');
 const forgetPopupButton = document.querySelector('.button_place_forget-popup');
 
-//Для попапа "Написать гавгав"
+//Элементы попапа "Написать гавгав"
 const gavgavButton = document.querySelector('.button_type_gavgav');
 const gavgavPopup = document.querySelector('.popup_type_gavgav');
 const gavgavCounter = document.querySelector('.counter__numbers_type_gavgav');
 const gavgavPopupButton = document.querySelector('.button_place_gavgav-popup');
 
-//
+//Элементы попапа с видео
 const kusButton = document.querySelector('.button_type_kus');
 const kusPopup = document.querySelector('.popup_type_kus');
 const kusVideo = document.querySelector('.popup__video');
@@ -70,12 +70,14 @@ function addCounter (counter) {
 //Заполняем инпуты данными со страницы
 //Конвертируем дату со страницы в нужный для инпута формат
 //Открываем попап регистрации
-signInButton.addEventListener('click', () => {
+signInButtons.forEach(button => {
+  button.addEventListener('click', () => {
   signInPopupNameInput.value = profileCardUserName.textContent;
   earsTypeInput.value = userEarsType.textContent;
   tailTypeInput.value = userTailType.textContent;
   birthdayInput.value = convertDateForInput(userBirhday.textContent);
   openPopup(signInPopup);
+  })
 });
 
 //Закрываем попап регистрации на кнопку Я
@@ -128,7 +130,17 @@ kusPopupCloseButton.addEventListener('click', () => {
 //                        Когда он активен
 
 const loginCard = document.querySelector('.login-card');
+const sidebarOpenButton = document.querySelector('.sidebar__button');
+const sidebarContainer = document.querySelector('.sidebar__container');
 const sidebar = document.querySelector('.sidebar');
+
+sidebarOpenButton.addEventListener('click', () => {
+  sidebar.classList.toggle('sidebar_type_opened');
+  sidebarOpenButton.classList.toggle('sidebar__button_type_active');
+  sidebarContainer.classList.toggle('sidebar__container_type_opened');
+});
+
+
 
 // popupBgCloseButt.addEventListener('click',()=>{
 //   [popupBg, kusVideo].forEach(el => el.classList.remove('active'));
@@ -231,11 +243,11 @@ loginPopupRadioButtonTypeBoy.addEventListener('click',()=>{
 //                          Нажимаем на кнопку с лапкой(sidebar) и
 //                          выдвигаем сайдбар логин-кард
 
-sidebar.addEventListener('click',()=>{
-  sidebar.classList.toggle('active');
-  popupBg.classList.toggle('sidebar-active');
-  loginCard.classList.toggle('active');
-})
+// sidebar.addEventListener('click',()=>{
+//   sidebar.classList.toggle('active');
+//   popupBg.classList.toggle('sidebar-active');
+//   loginCard.classList.toggle('active');
+// })
 
 //                          Прячем гипнотические карточки по клику на них
 

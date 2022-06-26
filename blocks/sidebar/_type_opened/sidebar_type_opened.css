@@ -1,0 +1,5 @@
+.sidebar_type_opened {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(1px)
+}

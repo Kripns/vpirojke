@@ -1,0 +1,5 @@
+.sidebar__container_type_opened {
+  visibility: visible;
+  transform: translate(1px);
+  z-index: 2;
+}

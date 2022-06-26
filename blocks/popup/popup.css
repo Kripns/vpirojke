@@ -12,5 +12,6 @@
   transform: scale(0);
   visibility: hidden;
   transition: visibility .2s, opacity .4s, transform .4s;
+  z-index: 3;
 }
 
