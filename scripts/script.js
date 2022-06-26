@@ -59,6 +59,7 @@ const header = document.querySelector('.header');
 const buttons = document.querySelectorAll('.button');
 const textElements = document.querySelectorAll('.card-text');
 const counterNumbers = document.querySelectorAll('.counter__numbers');
+const page = document.querySelector('.page');
 let theme = 'boy';//Дефолтная тема
 
 
@@ -125,6 +126,8 @@ function updateTheme() {
   counterNumbers.forEach((el)=>{
     el.classList.toggle('girl-theme');
   });
+
+  page.classList.toggle('girl');
 };
 
 

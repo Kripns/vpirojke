@@ -105,13 +105,3 @@
 @import url(../blocks/popup/__pic/popup__pic.css);
 @import url(../blocks/popup/__video/popup__video.css);
 @import url(../blocks/popup/__close-button/_color_grey/popup__close-button_color_grey.css);
-
-
-/* @import url(../blocks/popup-bg/popup-bg.css);
-@import url(../blocks/popup-bg/__close-butt/popup-bg__close-butt.css); */
-
-
-@import url(../blocks/gavgav-popup/gavgav-popup.css);
-@import url(../blocks/gavgav-popup/__heading/gavgav-popup__heading.css);
-@import url(../blocks/gavgav-popup/__pic/gavgav-popup__pic.css);
-@import url(../blocks/gavgav-popup/__button/gavgav-popup__button.css);

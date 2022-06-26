@@ -6,10 +6,6 @@
   margin: 0;
   }
 
-.card-text.girl {
-  filter: hue-rotate(115deg);
-}
-
 @media screen and (max-width: 605px) {
   .card-text {
     font-size: 11.5px;
