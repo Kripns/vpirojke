@@ -33,6 +33,11 @@ const kusVideo = document.querySelector('.popup__video');
 const kusCounter = document.querySelector('.counter__numbers_type_kus');
 const kusPopupCloseButton = kusPopup.querySelector('.popup__close-button');
 
+//Элементы попапа просмотра фоток
+const picsCardItems = Array.from(document.querySelectorAll('.pics-card__item'));
+const imagePopup = document.querySelector('.popup-type-image');
+const imagePopupCloseButton = imagePopup.querySelector('.popup__close-button');
+
 //Элементы сайдбара
 const loginCard = document.querySelector('.login-card');
 const sidebarOpenButton = document.querySelector('.sidebar__button');
@@ -61,7 +66,6 @@ const textElements = document.querySelectorAll('.card-text');
 const counterNumbers = document.querySelectorAll('.counter__numbers');
 const page = document.querySelector('.page');
 let theme = 'boy';//Дефолтная тема
-
 
 
 //ФУНКЦИИ
@@ -130,9 +134,20 @@ function updateTheme() {
   page.classList.toggle('girl');
 };
 
+//Фн изменяет ссылку на картинку в имэйдж попапе
+//чтоб загружалась большая фотка вместо маленькой
+function transformImageUrl(url) {
+  const arr = url.split('/');
+  console.log(arr);
+  arr[arr.length - 1] = `big${arr[arr.length - 1]}`;
+  return arr.join('/');
+};
+
 
 // ОБРАБОТЧИКИ
 
+
+//ПОПАПЫ
 
 //Отслеживаем клик по кнопке регистрация
 //Заполняем инпуты данными со страницы
@@ -178,11 +193,26 @@ kusButton.addEventListener('click', () => {
   openPopup(kusPopup);
 });
 
-//Закрываемна крестик и останавливаем видео
+//Закрываем на крестик и останавливаем видео
 kusPopupCloseButton.addEventListener('click', () => {
   kusVideo.pause();
   closePopup(kusPopup)
 });
+
+//Открываем попап с фотками по нажатию на картинку из галереи
+//меняем ссылку для большой фотки
+picsCardItems.forEach(image => {image.addEventListener('click', (evt) => {
+  openPopup(imagePopup);
+  const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image');
+  popupFullsizeImage.src = transformImageUrl(evt.target.src);
+  });
+});
+
+//закрываем попап на крестик
+imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));
+
+
+//САЙДБАР
 
 //Выдвигаем/прячем сайдбар по нажатию на лапку
 sidebarOpenButton.addEventListener('click', () => {
@@ -191,12 +221,18 @@ sidebarOpenButton.addEventListener('click', () => {
   sidebarContainer.classList.toggle('sidebar__container_type_opened');
 });
 
+
+//ГИПНОТИЧЕСКИЕ КАРТОЧКИ
+
 //Прячем гипнотические карточки по клику на них
 animationCards.forEach((el)=>{
   el.addEventListener('click',()=>{
     el.classList.add('hidden');
   });
 });
+
+
+//ИЗМЕНЕНИЕ ТЕМЫ
 
 //Меняем цветовую тему и заголовок в сайн ин попапе
 //по нажатию на радиокнопки в попапе (мальчик/девочка)
@@ -211,6 +247,9 @@ themeBoyButton.addEventListener('click', () => {
   signInPopupHeading.textContent = 'Кто хороший мальчик?';
   updateTheme();
 });
+
+
+//ПУБЛИКАЦИЯ ПОСТОВ
 
 //Обработчик публикации постов
 //Отменяем отправку формы
