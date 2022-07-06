@@ -37,6 +37,11 @@ const kusPopupCloseButton = kusPopup.querySelector('.popup__close-button');
 const picsCardItems = Array.from(document.querySelectorAll('.pics-card__item'));
 const imagePopup = document.querySelector('.popup-type-image');
 const imagePopupCloseButton = imagePopup.querySelector('.popup__close-button');
+const imageTemplate = document.querySelector('.image-template').content;
+const popupSmallImages = imagePopup.querySelector('.popup__small-images');
+
+
+
 
 //Элементы сайдбара
 const loginCard = document.querySelector('.login-card');
@@ -202,11 +207,23 @@ kusPopupCloseButton.addEventListener('click', () => {
 //Открываем попап с фотками по нажатию на картинку из галереи
 //меняем ссылку для большой фотки
 picsCardItems.forEach(image => {image.addEventListener('click', (evt) => {
+  renderImageInGallery(createImageForPopup(image));
   openPopup(imagePopup);
   const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image');
   popupFullsizeImage.src = transformImageUrl(evt.target.src);
   });
 });
+// TODO РАЗОБРАТЬСЯ С ПОПАП ИМЭЙДЖ
+
+function renderImageInGallery(image) {
+  popupSmallImages.prepend(image);
+};
+
+function createImageForPopup(image) {
+  const popupSmallImage = imageTemplate.querySelector('.popup__small-image').cloneNode(true);
+  popupSmallImage.src = image.src;
+  return popupSmallImage;
+};
 
 //закрываем попап на крестик
 imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));

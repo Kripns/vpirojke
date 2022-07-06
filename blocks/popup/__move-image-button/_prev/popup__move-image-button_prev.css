@@ -1,0 +1,6 @@
+.popup__move-image-button_prev {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  background-image: url(../../../../media/images/prev.png);
+}
