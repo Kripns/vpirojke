@@ -109,5 +109,5 @@
 @import url(../blocks/popup/__move-image-button/popup__move-image-button.css);
 @import url(../blocks/popup/__move-image-button/_next/popup__move-image-button_next.css);
 @import url(../blocks/popup/__move-image-button/_prev/popup__move-image-button_prev.css);
-@import url(../blocks/popup/__small-images/popup__small-images.css);
-@import url(../blocks/popup/__small-image/popup__small-image.css);
+@import url(../blocks/popup/__thumb-container/popup__thumb-container.css);
+@import url(../blocks/popup/__thumb-element/popup__thumb-element.css);

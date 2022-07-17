@@ -38,7 +38,6 @@ const picsCardItems = Array.from(document.querySelectorAll('.pics-card__item'));
 const imagePopup = document.querySelector('.popup-type-image');
 const imagePopupCloseButton = imagePopup.querySelector('.popup__close-button');
 const imageTemplate = document.querySelector('.image-template').content;
-const popupSmallImages = imagePopup.querySelector('.popup__small-images');
 
 
 
@@ -118,34 +117,37 @@ function addCounter (counter) {
 function updateTheme() {
   //Находим посты, если он есть
   document.querySelectorAll('.user-post__username')
-  .forEach(username =>{
-    username.classList.toggle('girl-theme')
+  .forEach(userName =>{
+    toggleGirlTheme(userName)
   });
 
-  [signInPopup, header].forEach(el => el.classList.toggle('girl-theme'));
+  [signInPopup, header].forEach(el => toggleGirlTheme(el));
 
   buttons.forEach((el)=>{
-    el.classList.toggle('girl-theme');
+    toggleGirlTheme(el);
   });
 
   textElements.forEach((el)=>{
-    el.classList.toggle('girl-theme');
+    toggleGirlTheme(el);
   });
 
   counterNumbers.forEach((el)=>{
-    el.classList.toggle('girl-theme');
+    toggleGirlTheme(el);
   });
 
   page.classList.toggle('girl');
 };
 
+function toggleGirlTheme(element) {
+  element.classList.toggle('girl-theme');
+};
+
 //Фн изменяет ссылку на картинку в имэйдж попапе
 //чтоб загружалась большая фотка вместо маленькой
 function transformImageUrl(url) {
-  const arr = url.split('/');
-  console.log(arr);
-  arr[arr.length - 1] = `big${arr[arr.length - 1]}`;
-  return arr.join('/');
+  const splitedUrl = url.split('/');
+  splitedUrl[splitedUrl.length - 1] = `big${splitedUrl[splitedUrl.length - 1]}`;
+  return splitedUrl.join('/');
 };
 
 
@@ -206,23 +208,30 @@ kusPopupCloseButton.addEventListener('click', () => {
 
 //Открываем попап с фотками по нажатию на картинку из галереи
 //меняем ссылку для большой фотки
-picsCardItems.forEach(image => {image.addEventListener('click', (evt) => {
-  renderImageInGallery(createImageForPopup(image));
-  openPopup(imagePopup);
-  const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image');
-  popupFullsizeImage.src = transformImageUrl(evt.target.src);
-  });
-});
+const popupThumbContainer = imagePopup.querySelector('.popup__thumb-container');
+
+picsCardItems.forEach(image => image.addEventListener('click', handleImagePopupOpening))
+
+  // const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image'); НЕТ В РАЗМЕТКЕ
+  // popupFullsizeImage.src = transformImageUrl(evt.target.src);
+
+//   });
+// });
 // TODO РАЗОБРАТЬСЯ С ПОПАП ИМЭЙДЖ
 
-function renderImageInGallery(image) {
-  popupSmallImages.prepend(image);
+function handleImagePopupOpening() {
+  picsCardItems.forEach(image => renderThumbImage(image));
+  openPopup(imagePopup);
 };
 
-function createImageForPopup(image) {
-  const popupSmallImage = imageTemplate.querySelector('.popup__small-image').cloneNode(true);
-  popupSmallImage.src = image.src;
-  return popupSmallImage;
+function renderThumbImage(image) {
+  popupThumbContainer.prepend(createThumbImage(image));
+};
+
+function createThumbImage(image) {
+  const popupThumbImage = imageTemplate.querySelector('.popup__thumb-element').cloneNode(true);
+  popupThumbImage.src = image.src;
+  return popupThumbImage;
 };
 
 //закрываем попап на крестик
