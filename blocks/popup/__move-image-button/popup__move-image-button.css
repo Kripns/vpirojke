@@ -1,0 +1,17 @@
+.popup__move-image-button {
+  width: 35px;
+  height: 35px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity .3s background-image .3s;
+}
+
+.popup__move-image-button:hover {
+  opacity: .3;
+}
+
+.popup__move-image-button:active {
+  background-image: url(../../../media/images/pngwing.png);
+}
+

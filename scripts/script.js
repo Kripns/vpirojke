@@ -37,6 +37,9 @@ const kusPopupCloseButton = kusPopup.querySelector('.popup__close-button');
 const picsCardItems = Array.from(document.querySelectorAll('.pics-card__item'));
 const imagePopup = document.querySelector('.popup-type-image');
 const imagePopupCloseButton = imagePopup.querySelector('.popup__close-button');
+const imageTemplate = document.querySelector('.image-template').content;
+const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image');
+const popupThumbContainer = imagePopup.querySelector('.popup__thumb-container');
 
 //Элементы сайдбара
 const loginCard = document.querySelector('.login-card');
@@ -71,17 +74,6 @@ let theme = 'boy';//Дефолтная тема
 //ФУНКЦИИ
 
 
-// Функция меняет формат даты рождения со страницы
-// для дальнейшего заполнения ей инпута в логин-попап
-function convertDateForInput (dateFromPage) {
-  return dateFromPage.slice(0, dateFromPage.length - 5).split('.').reverse().join('-');
-};
-
-// Функция меняет формат даты рождения для отображения на странице
-function convertDateOnPage (dateFromPopup) {
-  return dateFromPopup.split('-').reverse().join('.') + ' года';
-};
-
 // Фн открывает попап
 function openPopup(popup) {
   popup.classList.add('popup_type_opened');
@@ -91,6 +83,7 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_type_opened');
 };
+
 
 //Фн отменяет отправку формы и заполняет
 //профайл из соответствующих инпутов попапа
@@ -104,43 +97,83 @@ function handleSignInPopupSubmit(event) {
   closePopup(signInPopup);
 };
 
+// Функция меняет формат даты рождения со страницы
+// для дальнейшего заполнения ей инпута в логин-попап
+function convertDateForInput (dateFromPage) {
+  return dateFromPage.slice(0, dateFromPage.length - 5).split('.').reverse().join('-');
+};
+
+// Функция меняет формат даты рождения для отображения на странице
+function convertDateOnPage (dateFromPopup) {
+  return dateFromPopup.split('-').reverse().join('.') + ' года';
+};
+
 //Фн увеличивает счетчики на странице
 function addCounter (counter) {
   counter.textContent = Number(counter.textContent) + 1;
 };
 
-//Фн добавляет или удаляет класс с девчачей темой (пацанячая дефолтная)
+//Фн меняет тему на девчачую и обратно (пацанячая дефолтная)
 function updateTheme() {
-  //Находим посты, если он есть
   document.querySelectorAll('.user-post__username')
-  .forEach(username =>{
-    username.classList.toggle('girl-theme')
-  });
+  .forEach(userName => toggleGirlTheme(userName));
 
-  [signInPopup, header].forEach(el => el.classList.toggle('girl-theme'));
+  [signInPopup, header].forEach(el => toggleGirlTheme(el));
 
-  buttons.forEach((el)=>{
-    el.classList.toggle('girl-theme');
-  });
+  buttons.forEach((el)=> toggleGirlTheme(el));
 
-  textElements.forEach((el)=>{
-    el.classList.toggle('girl-theme');
-  });
+  textElements.forEach((el)=> toggleGirlTheme(el));
 
-  counterNumbers.forEach((el)=>{
-    el.classList.toggle('girl-theme');
-  });
+  counterNumbers.forEach((el)=> toggleGirlTheme(el));
 
   page.classList.toggle('girl');
+};
+
+//фн меняет класс темы
+function toggleGirlTheme(element) {
+  element.classList.toggle('girl-theme');
+};
+
+//фн управляет открытием имэйджПопапа
+function handleImagePopupOpening() {
+  picsCardItems.forEach(image => {
+    setFullsizeImageData(image);
+    renderThumbImage(image);
+  });
+  openPopup(imagePopup);
+};
+
+//фн заполняет ссылку и альт картинке в имэйджПопапе
+function setFullsizeImageData(image) {
+  popupFullsizeImage.src = transformImageUrl(image.src);
+  popupFullsizeImage.alt = image.alt;
 };
 
 //Фн изменяет ссылку на картинку в имэйдж попапе
 //чтоб загружалась большая фотка вместо маленькой
 function transformImageUrl(url) {
-  const arr = url.split('/');
-  console.log(arr);
-  arr[arr.length - 1] = `big${arr[arr.length - 1]}`;
-  return arr.join('/');
+  const splitedUrl = url.split('/');
+  splitedUrl[splitedUrl.length - 1] = `big${splitedUrl[splitedUrl.length - 1]}`;
+  return splitedUrl.join('/');
+};
+
+//фн рендерит thumbs в имэйджПопапе
+function renderThumbImage(image) {
+  popupThumbContainer.prepend(createThumbImage(image));
+};
+
+//фн создает thumb из темплейта
+function createThumbImage(image) {
+  const popupThumbImage = imageTemplate.querySelector('.popup__thumb-element').cloneNode(true);
+  popupThumbImage.src = image.src;
+  popupThumbImage.addEventListener('click', () => setFullsizeImageData(popupThumbImage));
+  return popupThumbImage;
+};
+
+//фн удаляет thumbs и закрывает имэйджПопап
+function handleImagePopupClosing() {
+  imagePopup.querySelectorAll('.popup__thumb-element').forEach(image => image.remove());
+  closePopup(imagePopup);
 };
 
 
@@ -200,16 +233,10 @@ kusPopupCloseButton.addEventListener('click', () => {
 });
 
 //Открываем попап с фотками по нажатию на картинку из галереи
-//меняем ссылку для большой фотки
-picsCardItems.forEach(image => {image.addEventListener('click', (evt) => {
-  openPopup(imagePopup);
-  const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image');
-  popupFullsizeImage.src = transformImageUrl(evt.target.src);
-  });
-});
+picsCardItems.forEach(image => image.addEventListener('click', handleImagePopupOpening))
 
 //закрываем попап на крестик
-imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));
+imagePopupCloseButton.addEventListener('click', handleImagePopupClosing);
 
 
 //САЙДБАР

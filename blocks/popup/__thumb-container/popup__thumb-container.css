@@ -1,0 +1,20 @@
+.popup__thumb-container {
+  max-width: 60%;
+  min-width: calc(52px * 4 + 10px * 4);
+  width: 100%;
+  max-height: 68px;
+  position: absolute;
+  bottom: 10px;
+  left: auto;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  padding-top: 10px;
+  opacity: .2;
+  transition: opacity .3s;
+}
+
+.popup__thumb-container:hover {
+  opacity: 1;
+}

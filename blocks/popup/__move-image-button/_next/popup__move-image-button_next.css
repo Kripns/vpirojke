@@ -1,0 +1,6 @@
+.popup__move-image-button_next {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  background-image: url(../../../../media/images/next.png);
+}
