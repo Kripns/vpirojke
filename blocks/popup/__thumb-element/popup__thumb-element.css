@@ -1,4 +1,5 @@
 .popup__thumb-element {
   max-width: 68px;
   max-height: 68px;
+  cursor: pointer;
 }

@@ -208,20 +208,32 @@ kusPopupCloseButton.addEventListener('click', () => {
 
 //Открываем попап с фотками по нажатию на картинку из галереи
 //меняем ссылку для большой фотки
-const popupThumbContainer = imagePopup.querySelector('.popup__thumb-container');
 
-picsCardItems.forEach(image => image.addEventListener('click', handleImagePopupOpening))
 
-  // const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image'); НЕТ В РАЗМЕТКЕ
-  // popupFullsizeImage.src = transformImageUrl(evt.target.src);
 
 //   });
 // });
 // TODO РАЗОБРАТЬСЯ С ПОПАП ИМЭЙДЖ
+const popupFullsizeImage = imagePopup.querySelector('.popup__fullsize-image');
+
+const popupThumbContainer = imagePopup.querySelector('.popup__thumb-container');
+
+picsCardItems.forEach(image => image.addEventListener('click', handleImagePopupOpening))
 
 function handleImagePopupOpening() {
-  picsCardItems.forEach(image => renderThumbImage(image));
+  picsCardItems.forEach(image => {
+    renderThumbImage(image)
+    createFullsizeImage(image)
+
+  });
   openPopup(imagePopup);
+};
+
+
+
+function createFullsizeImage(image) {
+  popupFullsizeImage.src = transformImageUrl(image.src);
+  popupFullsizeImage.alt = image.alt;
 };
 
 function renderThumbImage(image) {
@@ -231,6 +243,7 @@ function renderThumbImage(image) {
 function createThumbImage(image) {
   const popupThumbImage = imageTemplate.querySelector('.popup__thumb-element').cloneNode(true);
   popupThumbImage.src = image.src;
+  popupThumbImage.addEventListener('click', () => createFullsizeImage(popupThumbImage))
   return popupThumbImage;
 };
 
