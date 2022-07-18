@@ -135,11 +135,9 @@ function toggleGirlTheme(element) {
 };
 
 //фн управляет открытием имэйджПопапа
-function handleImagePopupOpening() {
-  picsCardItems.forEach(image => {
-    setFullsizeImageData(image);
-    renderThumbImage(image);
-  });
+function handleImagePopupOpening(evt) {
+  setFullsizeImageData(evt.target);
+  picsCardItems.forEach(image => renderThumbImage(image));
   openPopup(imagePopup);
 };
 
@@ -233,7 +231,7 @@ kusPopupCloseButton.addEventListener('click', () => {
 });
 
 //Открываем попап с фотками по нажатию на картинку из галереи
-picsCardItems.forEach(image => image.addEventListener('click', handleImagePopupOpening))
+picsCardItems.forEach(image => image.addEventListener('click', evt => handleImagePopupOpening(evt)))
 
 //закрываем попап на крестик
 imagePopupCloseButton.addEventListener('click', handleImagePopupClosing);
