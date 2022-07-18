@@ -81,13 +81,6 @@ function openPopup(popup) {
   popup.addEventListener('mousedown', closePopupByOverlay);
 };
 
-//Фн закрывает попап, удаляет слушатель эскейпа
-function closePopup(popup) {
-  if(imagePopup) {removeThumbs()}
-  popup.classList.remove('popup_type_opened');
-  document.removeEventListener('keydown', closePopupByEscape);
-};
-
 //фн закрывает попап на эскейп
 function closePopupByEscape(evt) {
   evt.key === 'Escape'
@@ -102,6 +95,18 @@ function closePopupByOverlay(evt) {
   :null;
 };
 
+//Фн закрывает попап, удаляет слушатель эскейпа
+function closePopup(popup) {
+  if(imagePopup) { removeThumbs() };
+  if(kusPopup) { kusVideo.pause() }
+  popup.classList.remove('popup_type_opened');
+  document.removeEventListener('keydown', closePopupByEscape);
+};
+
+//фн удаляет thumbs в имэйджПопапе
+function removeThumbs() {
+  imagePopup.querySelectorAll('.popup__thumb-element').forEach(image => image.remove());
+};
 
 //Фн отменяет отправку формы и заполняет
 //профайл из соответствующих инпутов попапа
@@ -186,11 +191,6 @@ function createThumbImage(image) {
   return popupThumbImage;
 };
 
-//фн удаляет thumbs и закрывает имэйджПопап
-function removeThumbs() {
-  imagePopup.querySelectorAll('.popup__thumb-element').forEach(image => image.remove());
-};
-
 
 // ОБРАБОТЧИКИ
 
@@ -241,9 +241,8 @@ kusButton.addEventListener('click', () => {
   openPopup(kusPopup);
 });
 
-//Закрываем на крестик и останавливаем видео
+//Закрываем на крестик
 kusPopupCloseButton.addEventListener('click', () => {
-  kusVideo.pause();
   closePopup(kusPopup)
 });
 
