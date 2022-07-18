@@ -77,11 +77,29 @@ let theme = 'boy';//Дефолтная тема
 // Фн открывает попап
 function openPopup(popup) {
   popup.classList.add('popup_type_opened');
+  document.addEventListener('keydown', closePopupByEscape);
+  popup.addEventListener('mousedown', closePopupByOverlay);
 };
 
-//Фн закрывает попап
+//Фн закрывает попап, удаляет слушатель эскейпа
 function closePopup(popup) {
+  if(imagePopup) {removeThumbs()}
   popup.classList.remove('popup_type_opened');
+  document.removeEventListener('keydown', closePopupByEscape);
+};
+
+//фн закрывает попап на эскейп
+function closePopupByEscape(evt) {
+  evt.key === 'Escape'
+  ?closePopup(document.querySelector('.popup_type_opened'))
+  :null;
+};
+
+//фн закрывает попап по клику на оверлэй
+function closePopupByOverlay(evt) {
+  evt.target.classList.contains('popup_type_opened')
+  ?closePopup(evt.target)
+  :null;
 };
 
 
@@ -169,9 +187,8 @@ function createThumbImage(image) {
 };
 
 //фн удаляет thumbs и закрывает имэйджПопап
-function handleImagePopupClosing() {
+function removeThumbs() {
   imagePopup.querySelectorAll('.popup__thumb-element').forEach(image => image.remove());
-  closePopup(imagePopup);
 };
 
 
@@ -234,7 +251,7 @@ kusPopupCloseButton.addEventListener('click', () => {
 picsCardItems.forEach(image => image.addEventListener('click', evt => handleImagePopupOpening(evt)))
 
 //закрываем попап на крестик
-imagePopupCloseButton.addEventListener('click', handleImagePopupClosing);
+imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));
 
 
 //САЙДБАР
@@ -298,3 +315,5 @@ postsAddingForm.addEventListener('submit', event => {
   postsList.prepend(userPost);
   postsAddingForm.reset();
 });
+
+
