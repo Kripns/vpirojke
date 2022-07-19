@@ -92,10 +92,7 @@
         <div class="pics-card">
           <h2 class="pics-card__heading card-text">Картинки</h2>
           <div class="pics-card__items">
-            <img class="pics-card__item" src="./media/images/lilpie-card-pic.jpg" alt="фото1">
-            <img class="pics-card__item" src="./media/images/jopastic-card-pic.jpg" alt="фото2">
-            <img class="pics-card__item" src="./media/images/pupsic-card-pic.jpg" alt="фото3">
-            <img class="pics-card__item" src="./media/images/pics-card1.jpg" alt="фото4">
+            <!-- place for gallaryImages rendering -->
           </div>
         </div>
         <div class="posts-card">
@@ -224,9 +221,11 @@
       </li>
     </template>
     <template class="image-template">
-      <!-- <img src="#" alt="" class="popup__fullsize-image"> -->
-      <img src="#" alt="" class="popup__thumb-element">
+      <img class="pics-card__item" src="" alt="">
+      <!-- <img class="popup__fullsize-image" src="#" alt=""> -->
+      <img class="popup__thumb-element" src="#" alt="">
     </template>
+    <script src="./scripts/images.js"></script>
     <script src="./scripts/script.js"></script>
   </body>
 </html>

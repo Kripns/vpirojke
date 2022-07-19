@@ -33,8 +33,10 @@ const kusVideo = document.querySelector('.popup__video');
 const kusCounter = document.querySelector('.counter__numbers_type_kus');
 const kusPopupCloseButton = kusPopup.querySelector('.popup__close-button');
 
+//Элементы галереи
+const gallery = document.querySelector('.pics-card__items');
+
 //Элементы попапа просмотра фоток
-const picsCardItems = Array.from(document.querySelectorAll('.pics-card__item'));
 const imagePopup = document.querySelector('.popup-type-image');
 const imagePopupCloseButton = imagePopup.querySelector('.popup__close-button');
 const imageTemplate = document.querySelector('.image-template').content;
@@ -160,7 +162,7 @@ function toggleGirlTheme(element) {
 //фн управляет открытием имэйджПопапа
 function handleImagePopupOpening(evt) {
   setFullsizeImageData(evt.target);
-  picsCardItems.forEach(image => renderThumbImage(image));
+  images.forEach(image => renderThumbImage(image));
   openPopup(imagePopup);
 };
 
@@ -186,11 +188,26 @@ function renderThumbImage(image) {
 //фн создает thumb из темплейта
 function createThumbImage(image) {
   const popupThumbImage = imageTemplate.querySelector('.popup__thumb-element').cloneNode(true);
-  popupThumbImage.src = image.src;
+  popupThumbImage.src = image.link;
   popupThumbImage.addEventListener('click', () => setFullsizeImageData(popupThumbImage));
   return popupThumbImage;
 };
 
+//фн рендерит картинки в галерею
+function renderGalleryImage(image) {
+  gallery.prepend(createGalleryImage(image));
+};
+
+//фн создает картинки для галереи
+function createGalleryImage(image) {
+  const galleryImage = imageTemplate.querySelector('.pics-card__item').cloneNode(true);
+  galleryImage.src = image.link;
+  galleryImage.addEventListener('click', evt => handleImagePopupOpening(evt));
+  return galleryImage;
+};
+
+//рендерим картинки в галерею
+images.forEach(image => renderGalleryImage(image));
 
 // ОБРАБОТЧИКИ
 
@@ -245,9 +262,6 @@ kusButton.addEventListener('click', () => {
 kusPopupCloseButton.addEventListener('click', () => {
   closePopup(kusPopup)
 });
-
-//Открываем попап с фотками по нажатию на картинку из галереи
-picsCardItems.forEach(image => image.addEventListener('click', evt => handleImagePopupOpening(evt)))
 
 //закрываем попап на крестик
 imagePopupCloseButton.addEventListener('click', () => closePopup(imagePopup));
@@ -314,5 +328,3 @@ postsAddingForm.addEventListener('submit', event => {
   postsList.prepend(userPost);
   postsAddingForm.reset();
 });
-
-
